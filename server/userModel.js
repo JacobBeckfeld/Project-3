@@ -20,8 +20,15 @@ const UserSchema = new Schema ({
         unique: true,
         required: "Email is Required",
         match: [/.+@.+\..+/, "Please enter a valid email address"]
-    }
+    },
+
+    boolean: Boolean,
+
+    array: Array
+
     });
+
+
 
 const User = mongoose.model("User", UserSchema);
 
