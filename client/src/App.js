@@ -1,9 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { Jumbotron } from 'reactstrap';
 
 function App() {
   return (
     <div className="App">
+      <Jumbotron>
+        <h1 className="display-3">Diablo III</h1>
+        <p className="lead">Howdy, you like Diablo.</p>
+      </Jumbotron>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
