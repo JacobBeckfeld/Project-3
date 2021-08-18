@@ -11,3 +11,5 @@ const { authMiddleware } = require('../../utils/auth');
 router.route("/dashboard").get(authMiddleware, getUser);
 router.route("/login").post(login);
 router.route("/signup").post(createUser);
+
+module.exports = router;
