@@ -23,12 +23,9 @@ const UserSchema = new Schema ({
     },
 
     boolean: Boolean,
-
     array: Array
-
-    });
-
-
+    
+});
 
 const User = mongoose.model("User", UserSchema);
 
