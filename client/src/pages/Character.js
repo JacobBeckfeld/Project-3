@@ -17,10 +17,18 @@ import { getProfile } from "../utils/API";
 
 //stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
 
+const handleSearch = async () => {
+    try {
+        const results = await (await getProfile("Laserrpg999#1705")).json();
+        console.log(results);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-const Character = async (props) => {
-    let results = await getProfile("Laserrpg999#1705");
-    console.log(results);
+
+const Character = (props) => {
+    handleSearch();
     return (
         <div>
             <Card>
