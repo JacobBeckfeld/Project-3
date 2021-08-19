@@ -1,6 +1,6 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, FormGroup, Button, Alert } from 'reactstrap';
 
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -53,9 +53,9 @@ const LoginForm = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
-        <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
+        <FormGroup>
+          <label htmlFor='email'>Email</label>
+          <input
             type='text'
             placeholder='Your email'
             name='email'
@@ -63,12 +63,12 @@ const LoginForm = () => {
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-        </Form.Group>
+          <message type='invalid'>Email is required!</message>
+        </FormGroup>
 
-        <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
+        <FormGroup>
+          <label htmlFor='password'>Password</label>
+          <input
             type='password'
             placeholder='Your password'
             name='password'
@@ -76,8 +76,8 @@ const LoginForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
+          <message type='invalid'>Password is required!</message>
+        </FormGroup>
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type='submit'
