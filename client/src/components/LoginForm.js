@@ -1,11 +1,11 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
-import { Form, FormGroup, Button, Alert } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
-const LoginForm = () => {
+function LoginForm() {
   const [userFormData, setUserFormData] = useState({ username: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -54,8 +54,8 @@ const LoginForm = () => {
           Something went wrong with your login credentials!
         </Alert>
         <FormGroup>
-          <label htmlFor='email'>Email</label>
-          <input
+          <Label htmlFor='email'>Email</Label>
+          <Input
             type='text'
             placeholder='Your email'
             name='email'
@@ -63,12 +63,12 @@ const LoginForm = () => {
             value={userFormData.email}
             required
           />
-          <message type='invalid'>Email is required!</message>
+          <div className='invalid-feedback'>Email is required!</div>
         </FormGroup>
 
         <FormGroup>
-          <label htmlFor='password'>Password</label>
-          <input
+          <Label htmlFor='password'>Password</Label>
+          <Input
             type='password'
             placeholder='Your password'
             name='password'
@@ -76,7 +76,7 @@ const LoginForm = () => {
             value={userFormData.password}
             required
           />
-          <message type='invalid'>Password is required!</message>
+          <div className='invalid-feedback'>Password is required!</div>
         </FormGroup>
         <Button
           disabled={!(userFormData.email && userFormData.password)}
