@@ -40,6 +40,13 @@ export default function Navigation() {
               </Link>
             </li>
           </ul>
+          <ul className="flex-row">
+            <li className="mx-1">
+              <Link to="/search">
+                Search
+              </Link>
+            </li>
+          </ul>
         </div>
       )
     }
