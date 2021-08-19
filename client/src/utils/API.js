@@ -28,10 +28,13 @@ export const loginUser = (userData) => {
 };
 
 export const getProfile = (battletag) => {
-    let newBattletag = battletag.replace(/%/, "%23");
-    fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`)
+    let newBattletag = battletag.replace(/#/, "%23");
+    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`)
     .then(function (res) {
         return res.json();
     })
+    // .then(function (data) {
+    //     return data;
+    // });
     // "https://us.api.blizzard.com/d3/profile/Laserrpg999%231705/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc"
 }

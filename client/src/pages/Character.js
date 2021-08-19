@@ -18,8 +18,8 @@ import { getProfile } from "../utils/API";
 //stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
 
 
-const Character = (props) => {
-    let results = getProfile("Laserrpg999#1705");
+const Character = async (props) => {
+    let results = await getProfile("Laserrpg999#1705");
     console.log(results);
     return (
         <div>
