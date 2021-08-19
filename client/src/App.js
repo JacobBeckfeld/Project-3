@@ -1,30 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import { Jumbotron } from 'reactstrap';
+import Navigation from '../components/Navigation';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Jumbotron>
-        <h1 className="display-3">Diablo III</h1>
-        <p className="lead">Howdy, you like Diablo.</p>
-      </Jumbotron>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div>
+        <Jumbotron>
+          <h1 className="display-3">Diablo Source</h1>
+          <p className="lead">Hello, you like Diablo.</p>
+        </Jumbotron>
+        <Navigation />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/d3/:id" component={Character} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+    </Router>
+  )
 }
-
-export default App;
