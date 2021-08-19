@@ -21,7 +21,7 @@ const allChars = () => {
         <CardDeck>
         <Card>
             <CardBody>
-            <CardTitle tag="h5">{charName}</CardTitle>
+            <CardTitle tag="h5"></CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
             <ListGroup>
                 <ListGroupItem>Level: </ListGroupItem>
