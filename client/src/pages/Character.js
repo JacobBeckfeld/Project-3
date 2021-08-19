@@ -2,21 +2,25 @@ import React from "react"
 import {
     Card, CardImg, CardTitle, CardText, CardDeck,
     CardSubtitle, CardBody
-    } from 'reactstrap';
+} from 'reactstrap';
+
+import { getProfile } from "../utils/API";
 
 
 //name, class, level, paragonlevel, 
 
 //skills: name, icon, description, rune: name, description
 
-  //equipment(items): head: name, icon, neck: name, icon, torso: name, icon, shoulders: name, icon, legs: name, icon, waist: name, icon, hands: name, icon, bracers: name, icon, feet: name, icon, leftFinger: name, icon, rightFinger: name, icon, mainHand: name, icon, offHand: name, icon
+//equipment(items): head: name, icon, neck: name, icon, torso: name, icon, shoulders: name, icon, legs: name, icon, waist: name, icon, hands: name, icon, bracers: name, icon, feet: name, icon, leftFinger: name, icon, rightFinger: name, icon, mainHand: name, icon, offHand: name, icon
 
 //highestSoloRiftCompleted
 
 //stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
 
 
-const Character = (props) => {
+const Character = async (props) => {
+    let results = await getProfile("Laserrpg999#1705");
+    console.log(results);
     return (
         <div>
             <Card>
@@ -41,7 +45,7 @@ const Character = (props) => {
                     </CardBody>
                 </Card>
                 <Card>
-                    
+
                     <CardBody>
                         <CardTitle tag="h5">Equipment</CardTitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Head</CardSubtitle>
