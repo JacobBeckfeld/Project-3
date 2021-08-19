@@ -25,13 +25,22 @@ export default function Navigation() {
       )
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/login">
-              Login / Signup
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <ul className="flex-row">
+            <li className="mx-1">
+              <Link to="/login">
+                Login / Signup
+              </Link>
+            </li>
+          </ul>
+          <ul className="flex-row">
+            <li className="mx-1">
+              <Link to="/character">
+                Character
+              </Link>
+            </li>
+          </ul>
+        </div>
       )
     }
   }
