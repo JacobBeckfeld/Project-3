@@ -35,5 +35,4 @@ const allChars = () => {
     );
 };
 
-export default mainProfile;
-export default allChars;
+export default { mainProfile, allChars };

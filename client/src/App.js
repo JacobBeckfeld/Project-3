@@ -5,10 +5,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Jumbotron } from 'reactstrap';
 // import Homepage from './pages/Homepage';
 // import Dashboard from './pages/Dashboard';
-// import Character from './pages/Character';
+import Character from './pages/Character';
 import LoginForm from './components/LoginForm';
 // import NoMatch from './pages/NoMatch';
 import Navigation from './components/Navigation';
+import Search from './pages/Search';
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/dashboard" component={LoginForm} />
           <Route exact path="/d3/:id" component={LoginForm} />
+          <Route exact path="/character" component={Character} />
+          <Route exact path="/search" component={Search} />
           {/* <Route component={NoMatch} /> */}
         </Switch>
       </div>
