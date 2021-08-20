@@ -4,7 +4,7 @@ import './index.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Jumbotron } from 'reactstrap';
 import Navigation from './components/Navigation';
-import Homepage from './pages/Homepage';
+// import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 // import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
@@ -21,7 +21,7 @@ export default function App() {
         <Navigation />
         </Jumbotron>
         <Switch>
-          <Route exact path="/" component={Homepage} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/dashboard" component={Login} />
           <Route exact path="/search" component={Search} />
