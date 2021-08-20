@@ -1,14 +1,16 @@
 const { User } = require("../models");
+const { signToken } = require('../utils/auth');
 
 module.exports = {
     async createUser({ body }, res) {
-        const user = await User.createUser(body);
+        const user = await User.create(body);
 
         if (!user) {
             return res.status(400).json({ message: "Unable to create user" });
         }
 
-        res.status(200).json(user);
+        const token = signToken(user)
+        res.json({ token, user })
     },
     async getUser({ params }, res) {
         const user = await User.findOne({ username: params.username });
