@@ -18,4 +18,5 @@ const AppProvider = ({children}) => {
 }
 
 const AppConsumer = AppContext.Consumer
+
 export { AppContext, AppProvider, AppConsumer }
