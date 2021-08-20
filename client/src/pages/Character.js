@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 
 import { useState } from "react";
-import { getCharacter, getProfile } from "../utils/API";
+import { getCharacter, getProfile, getToken } from "../utils/API";
 import { useEffect } from "react";
 
 //name, class, level, paragonlevel, 
@@ -28,8 +28,9 @@ const Character = () => {
     const handleSearch = async () => {
         
         try {
-            const response = await (await getProfile("Laserrpg999#1705")).json();
-            const results = await (await getCharacter("Laserrpg999#1705", `126040221`)).json();
+            const token = await getToken();
+            const response = await (await getProfile("Laserrpg999#1705", token)).json();
+            const results = await (await getCharacter("Laserrpg999#1705", `126040221`, token)).json();
             console.log(response)
             console.log(results);
             setHero(results)
