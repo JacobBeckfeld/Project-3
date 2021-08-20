@@ -43,3 +43,10 @@ export const getProfile = (battletag) => {
     // });
     // "https://us.api.blizzard.com/d3/profile/Laserrpg999%231705/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc"
 }
+
+export const getCharacter = (battletag, heroID) => {
+
+    let newBattletag = battletag.replace(/#/, "%23");
+
+    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`)
+}

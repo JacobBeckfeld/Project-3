@@ -4,8 +4,9 @@ import {
     CardSubtitle, CardBody
 } from 'reactstrap';
 
-import { getProfile } from "../utils/API";
-
+import { useState } from "react";
+import { getCharacter, getProfile } from "../utils/API";
+import { useEffect } from "react";
 
 //name, class, level, paragonlevel, 
 
@@ -17,26 +18,37 @@ import { getProfile } from "../utils/API";
 
 //stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
 
-const handleSearch = async () => {
-    try {
-        const results = await (await getProfile("Laserrpg999#1705")).json();
-        console.log(results);
-    } catch (error) {
-        console.log(error);
+//Try using global state process, try using usecontext or redux
+//use activities 1-12 for useContext
+
+
+const Character = () => {
+    
+    const [ hero, setHero ] = useState({})
+    const handleSearch = async () => {
+        
+        try {
+            const response = await (await getProfile("Laserrpg999#1705")).json();
+            const results = await (await getCharacter("Laserrpg999#1705", `126040221`)).json();
+            console.log(response)
+            console.log(results);
+            setHero(results)
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
-}
-
-
-const Character = (props) => {
-    handleSearch();
+    useEffect(() => {
+        handleSearch()
+    }, [])
     return (
         <div>
             <Card>
                 <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
                 <CardBody>
-                    <CardTitle tag="h5">Character Name: </CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">Character Class</CardSubtitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">Highest Solo Rift</CardSubtitle>
+                    <CardTitle tag="h5">Character Name:{hero.name}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">Character Class: {hero.class}</CardSubtitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">Highest Solo Rift: {hero.highestSoloRiftCompleted}</CardSubtitle>
                     <CardText>Level:</CardText>
                     <CardText>Paragon Level</CardText>
                 </CardBody>
@@ -126,8 +138,16 @@ const Character = (props) => {
                     </CardBody>
                 </Card>
             </CardDeck>
+            
         </div>
-    );
+            );
 };
 
 export default Character
+
+//export const getCharacter = (battletag, heroID) => {
+
+   // let newBattletag = battletag.replace(/#/, "%23");
+
+    //return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`)
+//}
