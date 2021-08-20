@@ -1,8 +1,9 @@
 import React from "react"
 import {
     Card, CardImg, CardTitle, CardText, CardDeck,
-    CardSubtitle, CardBody
+    CardSubtitle, CardBody, Jumbotron
 } from 'reactstrap';
+import Navigation from '../components/Navigation';
 
 import { useState } from "react";
 import { getCharacter, getProfile, getToken } from "../utils/API";
@@ -23,10 +24,10 @@ import { useEffect } from "react";
 
 
 const Character = () => {
-    
-    const [ hero, setHero ] = useState({})
+
+    const [hero, setHero] = useState({})
     const handleSearch = async () => {
-        
+
         try {
             const token = await getToken();
             const response = await (await getProfile("Laserrpg999#1705", token)).json();
@@ -34,7 +35,7 @@ const Character = () => {
             console.log(response)
             console.log(results);
             setHero(results)
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -44,6 +45,11 @@ const Character = () => {
     }, [])
     return (
         <div>
+            <Jumbotron>
+                <h1 className="display-3">Character Spread</h1>
+                <p className="lead">Hello, you like Diablo.</p>
+                <Navigation />
+            </Jumbotron>
             <Card>
                 <CardBody>
                     <CardTitle tag="h5">Character Name:{hero.name}</CardTitle>
@@ -56,43 +62,43 @@ const Character = () => {
             <CardDeck>
                 <Card>
                     <CardBody>
-                        
+
                         <CardTitle tag="h5">Skill List</CardTitle>
                         <CardSubtitle>{hero.skills ? hero.skills.active[0].skill.name : ''}:</CardSubtitle>
                         <CardImg top width="" src={hero.skills ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[0].skill.icon}.png` : ""} alt="Card image cap" />
                         <CardText>{hero.skills ? hero.skills.active[0].skill.description : ""}</CardText>
                         <CardSubtitle>Rune: {hero.skills ? hero.skills.active[0].rune.name : ""}</CardSubtitle>
                         <CardText>{hero.skills ? hero.skills.active[0].rune.description : ""}</CardText>
-                        
+
                         <CardSubtitle>{hero.skills ? hero.skills.active[1].skill.name : ""}:</CardSubtitle>
                         <CardImg top width="100%" src={hero.skills ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[1].skill.icon}.png` : ""} alt="Card image cap" />
                         <CardText>{hero.skills ? hero.skills.active[1].skill.description : ""}</CardText>
                         <CardSubtitle>Rune: {hero.skills ? hero.skills.active[1].rune.name : ""}</CardSubtitle>
                         <CardText>{hero.skills ? hero.skills.active[1].rune.description : ""}</CardText>
-                        
+
                         <CardSubtitle>{hero.skills ? hero.skills.active[2].skill.name : ""}:</CardSubtitle>
                         <CardImg top width="100%" src={hero.skills ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[2].skill.icon}.png` : ""} />
                         <CardText>{hero.skills ? hero.skills.active[2].skill.description : ""}</CardText>
                         <CardSubtitle>Rune: {hero.skills ? hero.skills.active[2].rune.name : ""}</CardSubtitle>
                         <CardText>{hero.skills ? hero.skills.active[2].rune.description : ""}</CardText>
-                        
+
                         <CardSubtitle>{hero.skills ? hero.skills.active[3].skill.name : ""}:</CardSubtitle>
                         <CardImg top width="100%" src={hero.skills ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[3].skill.icon}.png` : ""} alt="Card image cap" />
                         <CardText>{hero.skills ? hero.skills.active[3].skill.description : ""}</CardText>
                         <CardSubtitle>Rune: {hero.skills ? hero.skills.active[3].rune.name : ""}</CardSubtitle>
                         <CardText>{hero.skills ? hero.skills.active[3].rune.description : ""}</CardText>
-                        
+
                         <CardSubtitle>{hero.skills ? hero.skills.active[4].skill.name : ""}:</CardSubtitle>
                         <CardImg top width="100%" src={hero.skills ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[4].skill.icon}.png` : ""} alt="Card image cap" />
                         <CardText>{hero.skills ? hero.skills.active[4].skill.description : ""}</CardText>
-                        <CardSubtitle>Rune: {hero.skills ? hero.skills.active[4].rune.name: ""}</CardSubtitle>
+                        <CardSubtitle>Rune: {hero.skills ? hero.skills.active[4].rune.name : ""}</CardSubtitle>
                         <CardText>{hero.skills ? hero.skills.active[4].rune.description : ""}</CardText>
-                        
+
                         <CardSubtitle>{hero.skills ? hero.skills.active[5].skill.name : ""}:</CardSubtitle>
                         <CardImg top width="100%" src={hero.skills ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[5].skill.icon}.png` : ""} alt="Card image cap" />
                         <CardText>{hero.skills ? hero.skills.active[5].skill.description : ""}</CardText>
                         <CardSubtitle>Rune: {hero.skills ? hero.skills.active[5].rune.name : ""}</CardSubtitle>
-                        <CardText>{hero.skills ? hero.skills.active[5].rune.description : ""}</CardText> 
+                        <CardText>{hero.skills ? hero.skills.active[5].rune.description : ""}</CardText>
 
                     </CardBody>
                 </Card>
@@ -102,43 +108,43 @@ const Character = () => {
                         <CardTitle tag="h5">Equipment</CardTitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Head: {hero.items ? hero.items.head.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.head.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Neck: {hero.items ? hero.items.neck.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.neck.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Torso: {hero.items ? hero.items.torso.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.torso.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Shoulders: {hero.items ? hero.items.shoulders.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.shoulders.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Legs: {hero.items ? hero.items.legs.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.legs.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Waist: {hero.items ? hero.items.waist.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.waist.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Hands: {hero.items ? hero.items.hands.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.hands.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Bracers: {hero.items ? hero.items.bracers.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.bracers.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Feet: {hero.items ? hero.items.feet.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.feet.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Left Finger: {hero.items ? hero.items.leftFinger.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.leftFinger.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Right Finger: {hero.items ? hero.items.rightFinger.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.rightFinger.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Main Hand: {hero.items ? hero.items.mainHand.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.mainHand.icon}.png` : ""} alt="Card image cap" />
-                        
+
                         <CardSubtitle tag="h6" className="mb-2 text-muted">Off Hand: {hero.items ? hero.items.offHand.name : ""}</CardSubtitle>
                         <CardImg top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.offHand.icon}.png` : ""} alt="Card image cap" />
-                        
+
                     </CardBody>
                 </Card>
 
@@ -171,9 +177,9 @@ const Character = () => {
                     </CardBody>
                 </Card>
             </CardDeck>
-            
+
         </div>
-            );
+    );
 };
 
 export default Character

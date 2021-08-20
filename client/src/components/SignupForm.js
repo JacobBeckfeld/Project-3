@@ -11,28 +11,28 @@ export default function SignupForm() {
   const onDismiss = () => setShowAlert(false);
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    const { name, value } = event.target
+    setUserFormData({ ...userFormData, [name]: value })
   }
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
+      setShowAlert(true)
     }
 
     try {
       const response = await createUser(userFormData);
 
       if (!response.ok) {
-        throw new Error('something went wrong!');
+        throw new Error('something went wrong!')
       }
 
-      const { token, user } = await response.json();
+      const { token, user } = await response.json()
       console.log(user)
       Auth.login(token)
 
