@@ -13,7 +13,7 @@ const getToken = async () => {
     return await results.json();
 }
 
-const accessToken = getToken();
+const accessToken = getToken().accessToken;
 
 export const getUser = (token) => {
     return fetch("/api/users/dashboard", {
