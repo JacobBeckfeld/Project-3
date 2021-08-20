@@ -57,13 +57,3 @@ export const getCharacter = (battletag, heroID) => {
 
     return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=${accessToken}`)
 }
-
-export const getToken = () => {
-    return fetch('https://us.battle.net/oauth/token', {
-        method: 'POST',
-        headers: {
-            'Authorization': 'Basic ' + btoa('000ecf7460764ad49dc126af35cb090b:5T46w93U6ucQZ677R4uiidPdeHlEajSi')
-        },
-        body: 'grant_type=client_credentials'
-    });
-}
