@@ -14,7 +14,7 @@ import Character from './pages/Character';
 export default function App() {
   return (
     <Router>
-      <div>
+      <header>
         <Jumbotron>
           <h1 className="display-3">Diablo Source</h1>
           <p className="lead">Hello, you like Diablo.</p>
@@ -29,7 +29,7 @@ export default function App() {
           {/* <Route exact path="/d3/:id" component={Login} /> */}
           {/* <Route component={NoMatch} /> */}
         </Switch>
-      </div>
+      </header>
     </Router>
   )
 }
