@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 import { Nav, NavItem, NavLink } from 'reactstrap';
@@ -9,7 +9,7 @@ export default function Navigation() {
     if (Auth.loggedIn()) {
       return (
         <div className="d-flex flex-row">
-          <Nav tabs>
+          <Nav>
             <NavItem className="mx-1">
               <NavLink>
                 <Link to="/">
@@ -43,7 +43,7 @@ export default function Navigation() {
     } else {
       return (
         <div className="d-flex flex-row">
-          <Nav tabs>
+          <Nav>
             <NavItem className="mx-1">
               <NavLink><Link to="/login">
                 Login / Signup
@@ -72,7 +72,7 @@ export default function Navigation() {
 
   return (
     <div className="flex-row px-1">
-        {showNavigation()}
+      {showNavigation()}
     </div>
   )
 }
