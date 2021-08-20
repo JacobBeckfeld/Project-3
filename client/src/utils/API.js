@@ -1,5 +1,5 @@
 export const getUser = (token) => {
-    return fetch("/api/dashboard", {
+    return fetch("/api/users/dashboard", {
         headers: {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`,
