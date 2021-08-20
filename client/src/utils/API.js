@@ -1,3 +1,15 @@
+export const getToken = async () => {
+    const results = await fetch('https://us.battle.net/oauth/token', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: 'grant_type=client_credentials&client_id=000ecf7460764ad49dc126af35cb090b&client_secret=5T46w93U6ucQZ677R4uiidPdeHlEajSi'
+    });
+
+    return (await results.json()).access_token;
+}
+
 export const getUser = (token) => {
     return fetch("/api/users/dashboard", {
         headers: {
@@ -27,26 +39,16 @@ export const loginUser = (userData) => {
     });
 };
 
-export const getProfile = (battletag) => {
+export const getProfile = (battletag, accessToken) => {
+
     let newBattletag = battletag.replace(/#/, "%23");
 
-    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`);
-
-    // return results.json();
-
-    // return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`)
-    // .then(function (res) {
-    //     return res.json();
-    // })
-    // .then(function (data) {
-    //     return data;
-    // });
-    // "https://us.api.blizzard.com/d3/profile/Laserrpg999%231705/?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc"
+    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=${accessToken}`);
 }
 
-export const getCharacter = (battletag, heroID) => {
+export const getCharacter = (battletag, heroID, accessToken) => {
 
     let newBattletag = battletag.replace(/#/, "%23");
 
-    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=US9BodSM03UzyVr9cxr7HLSvLeQGC5i9Cc`)
+    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=${accessToken}`)
 }
