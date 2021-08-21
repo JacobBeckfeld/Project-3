@@ -1,3 +1,7 @@
+import React from 'react';
+import { Jumbotron, Button } from "reactstrap";
+import Navigation from '../components/Navigation';
+
 
 import React from 'react';
 import {
@@ -6,21 +10,20 @@ import {
 } from 'reactstrap';
 import stlye from "../style/homePage.css"
 
-const HomePage = () => {
+function Homepage() {
     return (
-        <div>
-            <Row className="justify-content-center">
-                <Card className="homepageCard col-4">
-                    <CardBody>
-                        <CardTitle className="homeTitle text-center">Welcom Hero!</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted text-center">Welcome to the Diablo Character searh Engine!</CardSubtitle>
-                        <CardText></CardText>
-                    </CardBody>
-                </Card>
-            </Row>
-        </div>
-    );
-};
+        <>
+            <Jumbotron>
+                <h1 className="display-3">Diablo Source</h1>
+                <p className="lead">Hello, you like Diablo.</p>
+                <Navigation />
+            </Jumbotron>
+            <Button color="primary" size="lg" block>
+                <iframe width="110" height="200" src="https://www.myinstants.com/instant/stay-a-while-and-listen/embed/" frameborder="0" scrolling="no"></iframe>
+            </Button>
+        </>
+    )
+}
 
 
 
