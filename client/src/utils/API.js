@@ -39,6 +39,17 @@ export const loginUser = (userData) => {
     });
 };
 
+export const saveProfile = (battletag, token) => {
+    return fetch('/api/users/saved', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(battletag)
+    })
+}
+
 export const getProfile = async (battletag, accessToken) => {
 
     let newBattletag = battletag.replace(/#/, "%23");
