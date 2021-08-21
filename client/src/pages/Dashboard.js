@@ -34,9 +34,9 @@ const Dashboard = (props) => {
                         <Card>
                             <ListGroup>
                                 <ListGroupItem tag="a" href="/character">Hero name: {hero.name ? hero.name : ''}</ListGroupItem>
-                                <ListGroupItem>Class: {hero.heroes ? hero.heroes[0].class : ''}</ListGroupItem>
-                                <ListGroupItem>Level: {hero.heroes ? hero.heroes[0].level : ''}</ListGroupItem>
-                                <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[0].paragonLevel : ''}</ListGroupItem>
+                                <ListGroupItem>Class: {hero.class ? hero.class : ''}</ListGroupItem>
+                                <ListGroupItem>Level: {hero.level ? hero.level : ''}</ListGroupItem>
+                                <ListGroupItem>Paragon Level: {hero.paragonLevel ? hero.paragonLevel : ''}</ListGroupItem>
                             </ListGroup>
                         </Card>
                     })
