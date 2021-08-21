@@ -1,8 +1,8 @@
 
 import { Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import React, { useState, } from 'react';
-import Auth from "../utils/auth"
-import { getProfile } from '../utils/API';
+import { getProfile, getToken } from '../utils/API';
+import { data } from 'jquery';
 
 
 
@@ -24,7 +24,10 @@ const CharacterSearch = () => {
           }
       
           try {
-            const response = await getProfile(searchInput);
+
+            const token = await getToken()
+            const response = await (await getProfile(searchInput, token)).json();
+            console.log(response)
       
             if (!response.ok) {
               throw new Error('something went wrong!');
@@ -34,11 +37,11 @@ const CharacterSearch = () => {
 
             //
       
-            const data = items.map((book) => ({
-              bookId: book.id,
-              authors: book.volumeInfo.authors || ['No author to display'],
-              title: book.volumeInfo.title,
-              description: book.volumeInfo.description,
+            const data = items.map((profile) => ({
+              heroId: profile.battleTag
+            //   authors: book.volumeInfo.authors || ['No author to display'],
+            //   title: book.volumeInfo.title,
+            //   description: book.volumeInfo.description,
             }));
       
             setsearchedCharacter(data);
@@ -48,15 +51,12 @@ const CharacterSearch = () => {
             console.error(err);
           }
         };
-          // get token
-          const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-
 
     return (
         
         <Container>
             <h1>Search for Battle Tag #</h1>
+            <h2>{data.heroId}</h2>
             <Form onSubmit={handleFormSubmit}>
                     <Form.Row>
                         <Col xs={12} md={8}>
