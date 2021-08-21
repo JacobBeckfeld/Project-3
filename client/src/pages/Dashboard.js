@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { getProfile, getToken } from "../utils/API";
 import { Jumbotron, Card, ListGroup, ListGroupItem } from 'reactstrap';
+import Navigation from "../components/Navigation";
 
 const Dashboard = (props) => {
     const [profile, setProfile] = useState({})
@@ -25,6 +26,7 @@ const Dashboard = (props) => {
 
     return (
         <div>
+            <Navigation />
             <Jumbotron>
                 <h1>Hello **CURRENT_USERNAME_HERE**</h1>
                 {props.battletag ?
