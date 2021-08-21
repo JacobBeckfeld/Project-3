@@ -9,7 +9,7 @@ import { getProfile, getToken } from '../utils/API';
 
 const CharacterSearch = () => {
   // create state for holding returned google api data
-  const [searchedCharacter, setsearchedCharacter] = useState([]);
+  // const [searchedCharacter, setsearchedCharacter] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
@@ -39,7 +39,7 @@ const CharacterSearch = () => {
         ));
         
 
-      setsearchedCharacter(data);
+      // setsearchedCharacter(data);
       console.log(data)
       setSearchInput('');
     } catch (err) {

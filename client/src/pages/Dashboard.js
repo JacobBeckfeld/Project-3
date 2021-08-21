@@ -14,7 +14,7 @@ const Dashboard = () => {
 
     const User = Auth.getProfile().data;
 
-    const onPageLoad = async () => {
+    const getUserProfile = async () => {
         if (User.battletag) {
             try {
                 const token = await getToken();
@@ -27,7 +27,8 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        onPageLoad();
+        getUserProfile();
+        // eslint-disable-next-line
     }, []);
 
     console.log(User);
@@ -41,7 +42,7 @@ const Dashboard = () => {
                 <Navigation />
             </Jumbotron>
 
-            <BattletagAndInfo profile={profile}/>
+            <BattletagAndInfo profile={profile} />
 
             <div className="row justify-content-center">
                 {profile.heroes ?
