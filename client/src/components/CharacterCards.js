@@ -7,7 +7,7 @@ const CharacterCards = (props) => {
 
     return (
         heroArray.map((hero) => (
-            <Card className="col-3 character-card">
+            <Card className="col-3 character-card" key={hero.id}>
                 <CardBody>
                     <CardTitle tag="h5">Character Name: {hero.name}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">Character Class: {hero.class}</CardSubtitle>
