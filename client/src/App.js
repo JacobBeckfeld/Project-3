@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
 import Character from './pages/Character';
 import NoMatch from './pages/NoMatch';
+import CharacterSearch from './components/CharacterSearch';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/character" component={Character} />
+          <Route exact path="/characterSearch"component={CharacterSearch} />
           <Route component={NoMatch} />
         </Switch>
     </Router>

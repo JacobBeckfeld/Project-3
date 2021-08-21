@@ -3,13 +3,6 @@ import { Jumbotron, Button } from "reactstrap";
 import Navigation from '../components/Navigation';
 
 
-import React from 'react';
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Row
-} from 'reactstrap';
-import stlye from "../style/homePage.css"
-
 function Homepage() {
     return (
         <>
@@ -27,4 +20,4 @@ function Homepage() {
 
 
 
-export default HomePage;
+export default Homepage;
