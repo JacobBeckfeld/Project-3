@@ -3,7 +3,6 @@ import { Jumbotron, Button } from "reactstrap";
 import Navigation from '../components/Navigation';
 
 
-
 function Homepage() {
     return (
         <>
@@ -21,4 +20,4 @@ function Homepage() {
 
 
 
-export default Homepage
+export default Homepage;
