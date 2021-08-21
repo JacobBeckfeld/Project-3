@@ -46,6 +46,17 @@ export const getProfile = (battletag, accessToken) => {
     return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=${accessToken}`);
 }
 
+export const saveProfile = (battletag, token) => {
+    return fetch('/api/users/saved', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(battletag)
+    })
+}
+
 export const getCharacter = (battletag, heroID, accessToken) => {
 
     let newBattletag = battletag.replace(/#/, "%23");
