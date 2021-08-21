@@ -4,7 +4,7 @@ import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 export default function SignupForm() {
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', battletag: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -15,6 +15,10 @@ export default function SignupForm() {
     setUserFormData({ ...userFormData, [name]: value })
   }
 
+  // const validBattletag = new RegExp(
+  //   '/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/'
+  // )
+
   const handleFormSubmit = async (event) => {
     event.preventDefault()
 
@@ -24,6 +28,11 @@ export default function SignupForm() {
       event.stopPropagation()
       setShowAlert(true)
     }
+    // if (!validBattleTag.test(battleTag) || (!battleTag==='')) {
+    //   event.preventDefault()
+    //   event.stopPropagation()
+    //   setShowAlert(true)
+    // }
 
     try {
       const response = await createUser(userFormData);
@@ -44,7 +53,8 @@ export default function SignupForm() {
     setUserFormData({
       username: '',
       email: '',
-      password: ''
+      password: '',
+      battletag: ''
     })
   }
 
@@ -96,6 +106,19 @@ export default function SignupForm() {
             />
             <FormFeedback className="invalid-feedback">Password is required!</FormFeedback>
           </FormGroup>
+
+          <FormGroup>
+            <Label htmlFor='battletag'>*Battle Tag</Label>
+            <Input
+              type='battletag'
+              placeholder='Your Battle Tag'
+              name='battletag'
+              onChange={handleInputChange}
+              value={userFormData.battleTag}
+            />
+            <FormFeedback className="invalid-feedback">Password is required!</FormFeedback>
+          </FormGroup>
+          <span>*Your Battle Tag is not required for signup*</span>
 
           <Button
             disabled={!(userFormData.username && userFormData.email && userFormData.password)}
