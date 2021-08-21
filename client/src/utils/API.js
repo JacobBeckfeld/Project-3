@@ -39,16 +39,16 @@ export const loginUser = (userData) => {
     });
 };
 
-export const getProfile = (battletag, accessToken) => {
+export const getProfile = async (battletag, accessToken) => {
 
     let newBattletag = battletag.replace(/#/, "%23");
 
-    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=${accessToken}`);
+    return (await fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/?locale=en_US&access_token=${accessToken}`)).json();
 }
 
-export const getCharacter = (battletag, heroID, accessToken) => {
+export const getCharacter = async (battletag, heroID, accessToken) => {
 
     let newBattletag = battletag.replace(/#/, "%23");
 
-    return fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=${accessToken}`)
+    return (await fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=${accessToken}`)).json();
 }

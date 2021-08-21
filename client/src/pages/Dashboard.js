@@ -14,7 +14,7 @@ const Dashboard = (props) => {
         if (User.battletag) {
             try {
                 const token = await getToken();
-                const response = await (await getProfile(User.battletag, token)).json();
+                const response = await getProfile(User.battletag, token);
                 setProfile(response);
             } catch (error) {
                 console.log(error);
@@ -39,11 +39,11 @@ const Dashboard = (props) => {
 
             <Container fluid>
                 <h1 className="display-3">Your battletag, {profile.battleTag} </h1>
-                <p class="lead">Paragon Level: {profile.paragonLevel}  </p>
-                <p class="lead">Hardcore Paragon Level: {profile.paragonLevelHardcore}  </p>
-                <p class="lead">Season Paragon Level: {profile.paragonLevelSeason}  </p>
-                <p class="lead">Hardcore Season Paragon Level: {profile.paragonLevelSeasonHardcore}  </p>
-                <p class="lead">Guild: {profile.guildName} </p>
+                <p className="lead">Paragon Level: {profile.paragonLevel}  </p>
+                <p className="lead">Hardcore Paragon Level: {profile.paragonLevelHardcore}  </p>
+                <p className="lead">Season Paragon Level: {profile.paragonLevelSeason}  </p>
+                <p className="lead">Hardcore Season Paragon Level: {profile.paragonLevelSeasonHardcore}  </p>
+                <p className="lead">Guild: {profile.guildName} </p>
             </Container>
             <div className="row justify-content-center">
                 {profile.heroes ?
@@ -54,12 +54,6 @@ const Dashboard = (props) => {
                                 <CardSubtitle tag="h6" className="mb-2 text-muted">Character Class: {hero.class}</CardSubtitle>
                                 <CardText>Level:{hero.level}</CardText>
                             </CardBody>
-                            {/* <ListGroup>
-                                <ListGroupItem tag="a" href="/character">Hero name: {hero.name ? hero.name : ''}</ListGroupItem>
-                                <ListGroupItem>Class: {hero.class ? hero.class : ''}</ListGroupItem>
-                                <ListGroupItem>Level: {hero.level ? hero.level : ''}</ListGroupItem>
-                                <ListGroupItem>Paragon Level: {hero.paragonLevel ? hero.paragonLevel : ''}</ListGroupItem>
-                            </ListGroup> */}
                         </Card>
                     ))
                     : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
