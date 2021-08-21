@@ -27,7 +27,17 @@ const CharacterSearch = () => {
       const response = await getProfile(searchInput, token);
       console.log(response)
 
-      const data = response.heroes.map((hero) => (hero.id));
+
+      //battleTag, paragonLevel, guildName
+      const data = response.heroes.map((hero) => (
+        hero.id,
+        hero.name,
+        hero.class,
+        hero.level
+        // hero.paragonLevel
+        
+        ));
+        
 
       setsearchedCharacter(data);
       console.log(data)
