@@ -16,3 +16,7 @@ a, Link {
   max-width: 100%;
   height: auto;
 }
+
+.character-card {
+  margin: 2.5px;
+}
