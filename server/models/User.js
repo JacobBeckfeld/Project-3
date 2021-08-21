@@ -17,6 +17,15 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    },
+    battletag: {
+      type: String,
+      match: [/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/, "Must enter a valid battletag"],
+      required: false
+    },
+    savedBattletags: {
+      type: Array,
+      default: []
     }
   }
 )
