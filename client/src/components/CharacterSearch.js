@@ -8,11 +8,12 @@ import { getProfile, getToken } from '../utils/API';
 
 
 const CharacterSearch = () => {
-    const [searchedCharacter, setSearchedCharacter] = useState([]);
-    
-    const [searchInput, setSearchInput] = useState('');
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+  // create state for holding returned google api data
+  const [searchedCharacter, setsearchedCharacter] = useState([]);
+  // create state for holding our search field data
+  const [searchInput, setSearchInput] = useState('');
 
         if (!searchInput) {
         return false;
@@ -35,8 +36,7 @@ const CharacterSearch = () => {
         }
     };
 
-    return (
-
+  return (
     <Container>
         <h1>Search for Battle Tag #</h1>
         <Form onSubmit={handleFormSubmit}>

@@ -30,8 +30,8 @@ const Character = () => {
 
         try {
             const token = await getToken();
-            const response = await (await getProfile("Laserrpg999#1705", token)).json();
-            const results = await (await getCharacter("Laserrpg999#1705", `126040221`, token)).json();
+            const response = await getProfile("Laserrpg999#1705", token);
+            const results = await getCharacter("Laserrpg999#1705", `126040221`, token);
             console.log(response)
             console.log(results);
             setHero(results)
