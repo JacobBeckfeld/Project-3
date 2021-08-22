@@ -29,16 +29,6 @@ export const createUser = (userData) => {
     });
 };
 
-export const loginUser = (userData) => {
-    return fetch('/api/users/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    });
-};
-
 export const saveProfile = (battletag, token) => {
     return fetch('/api/users/saved', {
         method: 'PUT',
@@ -49,6 +39,16 @@ export const saveProfile = (battletag, token) => {
         body: JSON.stringify(battletag)
     })
 }
+
+export const loginUser = (userData) => {
+    return fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+    });
+};
 
 export const getProfile = async (battletag, accessToken) => {
 

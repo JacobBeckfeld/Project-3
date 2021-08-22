@@ -40,10 +40,11 @@ module.exports = {
             const updatedUser = await User.findOneAndUpdate(
                 { _id: user._id },
                 { $addToSet: { savedBattletags: body } },
-                { new: true, runValidators: true}
+                { new: true, runValidators: true }
             )
             return res.json(updatedUser)
         }catch (err) {
+        console.log("saveprofile", err)
         return res.status(400).json(err)
         }
     }
