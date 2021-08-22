@@ -8,6 +8,8 @@ import Navigation from '../components/Navigation';
 import { useState } from "react";
 import { getCharacter, getProfile } from "../utils/API";
 import { useEffect } from "react";
+import CharacterSearch from "../components/CharacterSearch";
+import CharacterCards from "../components/CharacterCards";
 
 const Search = () => {
     const [hero, setHero] = useState({})
@@ -37,83 +39,9 @@ const Search = () => {
                 </Container>
                 <Navigation />
             </Jumbotron>
+            <CharacterSearch/>
             <h1 class="text-center"> Heroes </h1>
-            <CardDeck>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5"></CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-                        <ListGroup>
-                            <ListGroupItem tag="a" href="/character">Hero name: {hero.heroes ? hero.heroes[0].name : ''}</ListGroupItem>
-                            <ListGroupItem>Class: {hero.heroes ? hero.heroes[0].class : ''}</ListGroupItem>
-                            <ListGroupItem>Level: {hero.heroes ? hero.heroes[0].level : ''}</ListGroupItem>
-                            <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[0].paragonLevel : ''}</ListGroupItem>
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5"></CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-                        <ListGroup>
-                            <ListGroupItem>Hero name: {hero.heroes ? hero.heroes[1].name : ''}</ListGroupItem>
-                            <ListGroupItem>Class: {hero.heroes ? hero.heroes[1].class : ''}</ListGroupItem>
-                            <ListGroupItem>Level: {hero.heroes ? hero.heroes[1].level : ''}</ListGroupItem>
-                            <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[1].paragonLevel : ''}</ListGroupItem>
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5"></CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-                        <ListGroup>
-                            <ListGroupItem>Hero name: {hero.heroes ? hero.heroes[2].name : ''}</ListGroupItem>
-                            <ListGroupItem>Class: {hero.heroes ? hero.heroes[2].class : ''}</ListGroupItem>
-                            <ListGroupItem>Level: {hero.heroes ? hero.heroes[2].level : ''}</ListGroupItem>
-                            <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[2].paragonLevel : ''}</ListGroupItem>
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-            </CardDeck>
-            <CardDeck>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5"></CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-                        <ListGroup>
-                            <ListGroupItem>Hero name: {hero.heroes ? hero.heroes[3].name : ''}</ListGroupItem>
-                            <ListGroupItem>Class: {hero.heroes ? hero.heroes[3].class : ''}</ListGroupItem>
-                            <ListGroupItem>Level: {hero.heroes ? hero.heroes[3].level : ''}</ListGroupItem>
-                            <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[3].paragonLevel : ''}</ListGroupItem>
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5"></CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-                        <ListGroup>
-                            <ListGroupItem>Hero name: {hero.heroes ? hero.heroes[4].name : ''}</ListGroupItem>
-                            <ListGroupItem>Class: {hero.heroes ? hero.heroes[4].class : ''}</ListGroupItem>
-                            <ListGroupItem>Level: {hero.heroes ? hero.heroes[4].level : ''}</ListGroupItem>
-                            <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[4].paragonLevel : ''}</ListGroupItem>
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5"></CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-                        <ListGroup>
-                            <ListGroupItem>Hero name: {hero.heroes ? hero.heroes[5].name : ''}</ListGroupItem>
-                            <ListGroupItem>Class: {hero.heroes ? hero.heroes[5].class : ''}</ListGroupItem>
-                            <ListGroupItem>Level: {hero.heroes ? hero.heroes[5].level : ''}</ListGroupItem>
-                            <ListGroupItem>Paragon Level: {hero.heroes ? hero.heroes[5].paragonLevel : ''}</ListGroupItem>
-                        </ListGroup>
-                    </CardBody>
-                </Card>
-            </CardDeck>
+            <CharacterCards heroes= {}/>
         </div>
     );
 };
