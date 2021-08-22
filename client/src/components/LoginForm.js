@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useHistory, withRouter } from 'react-router-dom';
 import { Card, CardTitle, Form, FormGroup, Label, Input, Button, Alert, FormFeedback } from 'reactstrap';
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
-export default function LoginForm() {
+const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const history = useHistory();
 
   const onDismiss = () => setShowAlert(false);
 
@@ -35,6 +37,7 @@ export default function LoginForm() {
       const { token, user } = await response.json()
       console.log(user)
       Auth.login(token)
+      history.push('/dashboard')
 
     } catch (err) {
       console.error(err)
@@ -94,3 +97,5 @@ export default function LoginForm() {
     </>
   )
 }
+
+export default withRouter(LoginForm);
