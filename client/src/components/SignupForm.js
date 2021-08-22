@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Card, CardTitle, Form, FormGroup, Label, Input, FormFeedback, Button, Alert } from 'reactstrap';
 import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -7,6 +8,7 @@ export default function SignupForm() {
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', battletag: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const history = useHistory();
 
   const onDismiss = () => setShowAlert(false);
 
@@ -15,9 +17,9 @@ export default function SignupForm() {
     setUserFormData({ ...userFormData, [name]: value })
   }
 
-  // const validBattletag = new RegExp(
-  //   '/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/'
-  // )
+  const validBattletag = new RegExp(
+    '/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/'
+  )
 
   const handleFormSubmit = async (event) => {
     event.preventDefault()
@@ -28,11 +30,11 @@ export default function SignupForm() {
       event.stopPropagation()
       setShowAlert(true)
     }
-    // if (!validBattleTag.test(battleTag) || (!battleTag==='')) {
-    //   event.preventDefault()
-    //   event.stopPropagation()
-    //   setShowAlert(true)
-    // }
+    if (!validBattletag.test(userFormData.battletag) || (!userFormData.battletag==='')) {
+      event.preventDefault()
+      event.stopPropagation()
+      setShowAlert(true)
+    }
 
     try {
       const response = await createUser(userFormData);
@@ -44,6 +46,7 @@ export default function SignupForm() {
       const { token, user } = await response.json()
       console.log(user)
       Auth.login(token)
+      history.push('/dashboard')
 
     } catch (err) {
       console.error(err)
@@ -114,11 +117,12 @@ export default function SignupForm() {
               placeholder='Your Battle Tag'
               name='battletag'
               onChange={handleInputChange}
-              value={userFormData.battleTag}
+              value={userFormData.battletag}
             />
             <FormFeedback className="invalid-feedback">Password is required!</FormFeedback>
           </FormGroup>
           <span>*Your Battle Tag is not required for signup*</span>
+          <br />
 
           <Button
             disabled={!(userFormData.username && userFormData.email && userFormData.password)}
