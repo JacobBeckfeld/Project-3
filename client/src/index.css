@@ -195,3 +195,11 @@ a.navWork:hover {
 .deckardTitle{
   color: brown;
 }
+
+/*Info Change Card*/
+
+.infoChange{
+  background-image: url("./imgs/background_textile.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
