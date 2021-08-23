@@ -56,47 +56,10 @@ const Dashboard = () => {
         }
     };
     
-
     const handleInputChange = (event) => {
         const { name, value } = event.target
         setUserFormData({ ...userFormData, [name]: value })
     }
-
-    const handleFormSubmit = async (event) => {
-        event.preventDefault()
-    
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-          event.preventDefault()
-          event.stopPropagation()
-          setShowAlert(true)
-        }
-        if (!validBattletag.test(userFormData.battletag) || (!userFormData.battletag==='')) {
-          event.preventDefault()
-          event.stopPropagation()
-          setShowAlert(true)
-        }
-    
-        try {
-          const response = await updateProfile(userFormData);
-    
-          if (!response.ok) {
-            throw new Error('something went wrong!')
-          }
-    
-        } catch (err) {
-          console.error(err)
-          setShowAlert(true)
-        }
-    
-        setUserFormData({
-          username: '',
-          email: '',
-          password: '',
-          battletag: ''
-        })
-      }
-    
 
     useEffect(() => {
         getUserProfile();
@@ -121,18 +84,19 @@ const Dashboard = () => {
             </div>
 
             <Jumbotron>
-            <Form inline onSubmit={handleFormSubmit}>
+            <Form inline>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Label for="newUsername" className="mr-sm-2">{User.username}</Label>
                     <Input 
                     type="text" 
-                    id="newUsername" 
+                    id="newUsername"
+                    name="username" 
                     placeholder="New username"
                     onChange={handleInputChange}
                 
                 />
                 </FormGroup>
-                <Button type="submit" onClick={() => handleUpdateProfile(_id, userFormData), console.log(userFormData)} >Change username</Button>
+                <Button type="submit" onClick={() => handleUpdateProfile(_id, userFormData.username)} >Change username</Button>
             </Form>
             </Jumbotron>
             {/* Add in user profile stuff here! :) */}

@@ -40,6 +40,7 @@ module.exports = {
     },
 
     async updateProfile(req, res) {
+        console.log("body", req.body)
         try {
             const updateUsername = await User.findOneAndUpdate(
                 { _id: req.body._id },
