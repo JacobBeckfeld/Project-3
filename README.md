@@ -23,7 +23,7 @@ No installation necessary; just visit the link in the [Usage](#usage) section be
 * ReactJS
 * NodeJS
 * bcrypt
-* Insomnia/Postman
+* JSON Web Token
 * Mongoose
 * HTML5
 * CSS3
