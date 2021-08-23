@@ -20,6 +20,7 @@ const BattletagAndInfo = (props) => {
 
         try {
             const response = await saveProfile(_id, battletag)
+            const data = response.json()
 
             if (response.ok) {
                 console.log(response)
