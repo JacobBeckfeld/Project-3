@@ -203,3 +203,29 @@ a.navWork:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/*Hero Card Styling*/
+
+.heroTitle{
+  text-align: center;
+}
+.characterCard{
+  background-image: url("./imgs/Character-info-background2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.heroCardTitle{
+  color: silver;
+  
+}
+
+.heroSub{
+  color: silver;
+}
+
+.heroText{
+  color: silver;
+  font-size: 20px;
+}
