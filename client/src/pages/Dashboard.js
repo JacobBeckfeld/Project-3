@@ -13,15 +13,9 @@ const Dashboard = () => {
 
     const [profile, setProfile] = useState({});
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', battletag: '' });
-    const [showAlert, setShowAlert] = useState(false);
 
     const User = Auth.getProfile().data;
     const _id = User._id;
-    const email = User.email;
-    const username = User.username;
-    const validBattletag = new RegExp(
-        '/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/'
-    )
 
     const getUserProfile = async () => {
         if (User.battletag) {
@@ -43,7 +37,6 @@ const Dashboard = () => {
 
         try {
             const response = await updateUserUsername(_id, username)
-            const data = response.json()
 
             if (response.ok) {
                 console.log(response)
@@ -63,7 +56,6 @@ const Dashboard = () => {
 
         try {
             const response = await updateUserEmail(_id, email)
-            const data = response.json()
 
             if (response.ok) {
                 console.log(response)
