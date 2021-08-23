@@ -1,13 +1,11 @@
-import React from "react"
 import {
     Card, CardImg, CardTitle, CardText, CardDeck,
     CardSubtitle, CardBody, Jumbotron, Col, Row
 } from 'reactstrap';
 import Navigation from '../components/Navigation';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getCharacter, getToken } from "../utils/API";
-import { useEffect } from "react";
 import { useAppContext } from "../utils/AppContext";
 
 //name, class, level, paragonlevel, 
@@ -44,7 +42,7 @@ const Character = () => {
     useEffect(() => {
         handleSearch()
         // eslint-disable-next-line
-    }, [])
+    }, [appCtx])
 
     return (
         <div>
