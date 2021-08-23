@@ -70,6 +70,7 @@ a.navWork {
   padding: 0.5rem;
   margin: 1rem;
   text-align: center;
+  border-color: black;
 }
 
 .cardThing.eImg{
@@ -91,7 +92,7 @@ a.navWork {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
+  border-color: black;
 }
 
 
