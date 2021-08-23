@@ -6,7 +6,8 @@ import Navigation from '../components/Navigation';
 
 import { useState, useEffect } from "react";
 import { getCharacter, getToken } from "../utils/API";
-import { useAppContext } from "../utils/AppContext";
+
+import { getSavedCharacter } from '../utils/localStorage';
 
 //name, class, level, paragonlevel, 
 
@@ -18,20 +19,18 @@ import { useAppContext } from "../utils/AppContext";
 
 //stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
 
-//Try using global state process, try using usecontext or redux
-//use activities 1-12 for useContext
 
 //appCtx.appState.battleTag, appCtx.appState.heroId, token)
 
 
-const Character = () => {
-    const appCtx = useAppContext();
 
+const Character = () => {
     const [hero, setHero] = useState({})
+    const character = getSavedCharacter();
     const handleSearch = async () => {
         try {
             const token = await getToken();
-            const results = await getCharacter("Botta#1424", 115574715, token);
+            const results = await getCharacter(character.battleTag, character.heroId, token);
             console.log(results);
             setHero(results)
         } catch (error) {
@@ -42,7 +41,7 @@ const Character = () => {
     useEffect(() => {
         handleSearch()
         // eslint-disable-next-line
-    }, [appCtx])
+    }, [])
 
     return (
         <div>
@@ -157,10 +156,15 @@ const Character = () => {
                                     <CardTitle className="eSub m-2" tag="h4" >Main Hand: {hero.items ? hero.items.mainHand.name : ""}</CardTitle>
                                     <CardImg className="eImg" top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.mainHand.icon}.png` : ""} alt="Card image cap" />
                                 </div>
-                                <div className="cardThing">
-                                    <CardTitle className="eSub m-2" tag="h4" >Off Hand: {hero.items ? hero.items.offHand.name : ""}</CardTitle>
-                                    <CardImg className="eImg" top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.offHand.icon}.png` : ""} alt="Card image cap" />
-                                </div>
+                                {hero.items ?
+                                    (hero.items.offHand ?
+                                        <div className="cardThing">
+                                            <CardTitle className="eSub m-2" tag="h4" >Off Hand: {hero.items ? (hero.items.offHand ? hero.items.offHand.name : "") : ""}</CardTitle>
+                                            <CardImg className="eImg" top width="100%" src={hero.items ? (hero.items.offHand ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.offHand.icon}.png` : "") : ""} alt="Card image cap" />
+                                        </div>
+                                        : "")
+                                    : ""}
+
                             </Col>
                         </Row>
                     </CardBody>
