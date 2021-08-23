@@ -30,6 +30,7 @@ export const createUser = (userData) => {
 };
 
 export const updateProfile = (_id, username) => {
+    console.log(_id, username)
     return fetch('/api/users/dashboard', {
         method: 'PUT',
         headers: {
@@ -40,7 +41,7 @@ export const updateProfile = (_id, username) => {
 }
 export const saveProfile = (_id, battletag) => {
     return fetch('/api/users/dashboard', {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
