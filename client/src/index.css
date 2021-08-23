@@ -31,6 +31,7 @@ a.navWork:hover {
 
 .splash-header.card-header {
   background-image: url('./imgs/Character-info-background.jpg');
+  color: brown;
 }
 
 .card > .card-body > img {
@@ -162,4 +163,27 @@ a.navWork:hover {
 .skillText{
   color: brown;
   font-size: 1.25rem;
+}
+
+/*Deckard's Style ;)*/
+
+.deckard{
+  background-image: url("./imgs/Deckard.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.splash-card{
+  max-height: 500px;
+  min-height: 300px;
+}
+
+.deckardText{
+  font-size: 30px;
+  color: rgb(189, 71, 3);
+}
+
+.deckardTitle{
+  color: brown;
 }
