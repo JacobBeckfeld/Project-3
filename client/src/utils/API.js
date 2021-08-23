@@ -29,16 +29,28 @@ export const createUser = (userData) => {
     });
 };
 
-export const updateProfile = (_id, username) => {
+export const updateUserUsername = (_id, username) => {
     console.log(_id, username)
-    return fetch('/api/users/dashboard', {
+    return fetch('/api/users/dashboard/username', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({_id, username})
-    })
-}
+    });
+};
+
+export const updateUserEmail = (_id, email) => {
+    console.log(_id, email)
+    return fetch('/api/users/dashboard/email', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({_id, email})
+    });
+};
+
 export const saveProfile = (_id, battletag) => {
     return fetch('/api/users/dashboard', {
         method: 'POST',
@@ -46,8 +58,8 @@ export const saveProfile = (_id, battletag) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ _id, battletag })
-    })
-}
+    });
+};
 
 export const loginUser = (userData) => {
     return fetch('/api/users/login', {
