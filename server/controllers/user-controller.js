@@ -3,6 +3,7 @@ const { signToken } = require('../utils/auth');
 
 module.exports = {
     async createUser({ body }, res) {
+
         const user = await User.create(body);
 
         if (!user) {
@@ -12,6 +13,7 @@ module.exports = {
         const token = signToken(user)
         res.json({ token, user })
     },
+
     async getUser({ params }, res) {
         const user = await User.findOne({ username: params.username });
 
@@ -21,6 +23,7 @@ module.exports = {
 
         res.status(200).json(user);
     },
+
     async login({ body }, res) {
         const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
         if (!user) {
@@ -35,6 +38,21 @@ module.exports = {
         const token = signToken(user);
         res.json({ token, user });
     },
+
+    async updateProfile(req, res) {
+        try {
+            const updateUsername = await User.findOneAndUpdate(
+                { _id: req.body._id },
+                { $set: { username: req.body.username } },
+                { new: true }
+            )
+            return res.json(updateUsername)
+        } catch (err) {
+            console.log("newUsername", err)
+            return res.status(400).json(err)
+        }
+    },
+    
     async saveProfile(req, res) {
         console.log("id", req.body._id)
         try {
