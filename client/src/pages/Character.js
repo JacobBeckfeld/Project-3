@@ -172,7 +172,7 @@ const Character = () => {
 
 
                 <Card>
-                    <CardBody className="skills">
+                    <CardBody className="skills stats">
                         <CardTitle className="skillTitle" tag="h1">Character Stats:</CardTitle>
                         <CardSubtitle tag="h3" className="skillsInfo mb-2">Life: {hero.stats ? hero.stats.life : ""}</CardSubtitle>
                         <CardSubtitle tag="h3" className="skillsInfo mb-2">Damage: {hero.stats ? hero.stats.damage : ""}</CardSubtitle>
