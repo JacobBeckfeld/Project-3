@@ -1,11 +1,12 @@
 import { Container, Col, Form, Button, Row, Input } from 'reactstrap';
-import { useState, } from 'react';
+import { useState, useEffect } from 'react';
 import { getProfile, getToken } from '../utils/API';
 import { useAppContext } from '../utils/AppContext';
 
 const CharacterSearch = () => {
   const appCtx = useAppContext();
   const [searchInput, setSearchInput] = useState('');
+  const [renderReady, setRenderReady] = useState(false);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -24,8 +25,11 @@ const CharacterSearch = () => {
       console.log(response)
 
       //battleTag, paragonLevel, guildName     
-
-      appCtx.setAppState({ ...appCtx.appState, battleTag: response.battleTag, heroes: response.heroes });
+      if (response.battleTag) {
+        console.log("here")
+        await appCtx.setAppState({ ...appCtx.appState, battleTag: response.battleTag, heroes: response.heroes });
+      }
+      console.log(appCtx.appState)
       setSearchInput('');
     } catch (err) {
       console.error(err);
