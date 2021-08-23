@@ -210,22 +210,33 @@ a.navWork:hover {
   text-align: center;
 }
 .characterCard{
-  background-image: url("./imgs/Character-info-background2.jpg");
-  background-position: center;
+  background-image: url("./imgs/Class_Background2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .heroCardTitle{
-  color: silver;
+  color: brown;
+  font-weight: bold;
+  background-color: white;
+  opacity: .75;
+  border-radius: 1rem;
   
 }
 
 .heroSub{
-  color: silver;
+  color: rgb(189, 71, 3);
+  font-weight: bold;
+  background-color: white;
+  opacity: .75;
+  border-radius: 1rem;
 }
 
 .heroText{
-  color: silver;
+  color: rgb(189, 71, 3);
+  font-weight: bold;
   font-size: 20px;
+  background-color: white;
+  opacity: .75;
+  border-radius: 1rem;
 }
