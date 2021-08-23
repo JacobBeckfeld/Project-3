@@ -17,11 +17,11 @@ const CharacterCards = (props) => {
 
     return (
         props.heroes.map((hero) => (
-            <Card className="col-3 character-card" key={hero.id} id={props.battletag} id2={hero.id} onClick={renderCharacter}>
+            <Card className="col-3 character-card characterCard" key={hero.id} id={props.battletag} id2={hero.id} onClick={renderCharacter}>
                 <CardBody id={props.battletag} id2={hero.id}>
-                    <CardTitle tag="h5" id={props.battletag} id2={hero.id}>Character Name: {hero.name}</CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted" id={props.battletag} id2={hero.id}>Character Class: {hero.class}</CardSubtitle>
-                    <CardText id={props.battletag} id2={hero.id}>Level:{hero.level}</CardText>
+                    <CardTitle className="heroCardTitle" tag="h2" id={props.battletag} id2={hero.id}>Character Name: {hero.name}</CardTitle>
+                    <CardSubtitle tag="h4" className="mb-2 heroSub" id={props.battletag} id2={hero.id}>Character Class: {hero.class}</CardSubtitle>
+                    <CardText className="heroText" id={props.battletag} id2={hero.id}>Level:{hero.level}</CardText>
                 </CardBody>
             </Card>
         ))

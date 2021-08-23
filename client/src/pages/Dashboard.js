@@ -5,7 +5,7 @@ import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card } from 'rea
 import Navigation from "../components/Navigation";
 import CharacterCards from "../components/CharacterCards";
 import BattletagAndInfo from "../components/BattletagAndInfo";
-// import Leaderboard from "../components/Leaderboard";
+import Leaderboard from "../components/Leaderboard";
 
 import Auth from "../utils/auth";
 
@@ -86,11 +86,11 @@ const Dashboard = () => {
             </Jumbotron>
                 <BattletagAndInfo profile={profile} />
                 <div className="row justify-content-center">
+                    <h1 className="heroTitle">Your Heroes!</h1>
                     {profile.heroes ?
                         <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
                         : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
                     }
-                </div>
             <Row className="justify-content-end">
                 <Card className="col-4 infoChange">
                     <h1>Change your profile information here!</h1>
@@ -122,10 +122,11 @@ const Dashboard = () => {
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
                     </Form>
-                </Card>S
+                </Card>
             </Row>
+                </div>
             {/* Add in user profile stuff here! :) */}
-            {/* <Leaderboard /> */}
+            <Leaderboard />
 
         </div>
     );
