@@ -11,27 +11,27 @@ export default function Navigation() {
         <div className="d-flex flex-row">
           <Nav>
             <NavItem className="mx-1">
-              <NavLink href="/">
+              <NavLink href="/" className="navWork">
                 Home
               </NavLink>
             </NavItem>
             <NavItem className="mx-1">
-              <NavLink href="/dashboard">
+              <NavLink href="/dashboard" className="navWork">
                 Dashboard
               </NavLink>
             </NavItem>
             <NavItem className="mx-1">
-              <NavLink href="/character">
+              <NavLink href="/character" className="navWork">
                 Character
               </NavLink>
             </NavItem>
             <NavItem className="mx-1">
-              <NavLink href="/search">
+              <NavLink href="/search" className="navWork">
                 Search
               </NavLink>
             </NavItem>
             <NavItem className="mx-1">
-              <NavLink href="/" onClick={() => Auth.logout()}>
+              <NavLink href="/" onClick={() => Auth.logout()} className="navWork">
                 Logout
               </NavLink>
             </NavItem>

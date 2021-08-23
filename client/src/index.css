@@ -1,24 +1,120 @@
 body {
   font-family: 'Grenze', 'Garamond', Times, serif;
+  background-image: url("./imgs/background_textile.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-h1, h2, h3, h4 {
+/*Text Styling*/
+
+p, h1, h2, h3, h4 {
   font-family: 'Grenze Gotisch', 'Exocet', serif;
+  color: silver;
 }
 
-a, Link {
+/* Link Color*/
+a, Link{
   font-family: 'Grenze Gotisch';
   font-size: 1.25rem;
   text-decoration: none;
+  color: rgb(155, 15, 15);
+}
+
+a.navWork {
+  color: rgb(155, 15, 15);
 }
 
 .card > .card-body > img {
   max-width: 100%;
   height: auto;
+  justify-self: center;
 }
 
 .character-card {
   margin: 2.5px;
+}
+
+
+/*Jumbotron styling*/
+
+.jumbotron {
+  background-image: url("./imgs/diablo_face.jpg");
+  background-position: right;
+  background-size: cover;
+}
+
+/*Button styling*/
+
+.btn{
+  align-items: center;
+}
+
+.characterImg{
+  width: 10%;
+  max-width: 100%;
+  justify-self: center;
+}
+
+
+/*Equipment Card Styling*/
+.eImg{
+  width: 20%;
+  max-width: 100%;
+}
+
+.cardThing{
+  background-color: white;
+  opacity: 0.65;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.cardThing.eImg{
+  opacity: 1;
+}
+
+.eSub{
+  color: rgb(189, 71, 3);
+}
+
+.eTitle{
+  color: brown;
+}
+
+
+
+.equipment{
+  background-image: url("./imgs/equipment_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+
+/* Character Info Styling*/
+
+.info{
+  background-image: url("./imgs/Character-info-background.jpg");
+  background-size: cover;
+  text-align: center;
+
+}
+
+.infoParent{
+  margin: 1rem;
+  border-color: black;
+}
+
+.skills{
+  background-image: url("./imgs/Skills-Background3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 
 .homepageCard{
