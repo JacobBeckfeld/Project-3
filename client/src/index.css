@@ -65,6 +65,14 @@ a.navWork:hover {
   justify-self: center;
 }
 
+/*Alert styling*/
+
+.save-btag-alert {
+  width: 25%;
+  min-width: 58px;
+  margin-top: 1rem;
+}
+
 
 /*Equipment Card Styling*/
 .eImg{
