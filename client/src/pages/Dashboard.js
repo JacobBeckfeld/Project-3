@@ -97,7 +97,7 @@ const Dashboard = () => {
 
             <div className="row justify-content-center">
                 {profile.heroes ?
-                    <CharacterCards heroes={profile.heroes} />
+                    <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
                     : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
                 }
             </div>
