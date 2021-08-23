@@ -1,70 +1,68 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Diablo Source  
+  
+## Description  
+  
+This is a single-page React-built Diablo resource utilizing the official Blizzard API for users to access and save fellow player and character information.  
+  
+## Table of Contents  
+- ### [Installation](#installation)
+- ### [Technology Stack](#technology-stack)
+- ### [Usage](#usage)
+- ### [Screenshots](#screenshots)
+- ### [Contributing](#contributing)
+- ### [Questions](#questions)
+  
+## Installation  
+  
+No installation necessary; just visit the link in the [Usage](#usage) section below.  
+  
+## Technology Stack  
+  
+* MongoDB
+* Express
+* ReactJS
+* NodeJS
+* bcrypt
+* JSON Web Token
+* Mongoose
+* HTML5
+* CSS3
+* ES6+
+* Blizzard API
+    
+## Usage  
+  
+Users can sign-up to create an account with or without a BattleTag and search for other players or their characters and save them to their account for even easier access later. If the user provides a BattleTag with their sign-up, they can look at their own account and player information by default. Seasonal Leaderboards are accessed and displayed live on-load.
+  
+Check out the [deployed app]().  
+  
+## Screenshots  
+![screenshot of Diablo Source homepage](./src/images/screenshot.jpg)  
+  
+---  
+  
+![screenshot of Diablo Source on user dashboard page](./src/images/screenshot2.jpg)  
+  
+---  
+  
+![screenshot of Diablo Source search results page](./src/images/screenshot3.jpg)  
+  
+## Contributing  
+  
+Jacob Beckfeld, Neil Burt, Zachary Guldberg, Calvin Li  
+  
+## Questions  
+  
+If you have any additional questions:  
+  
+Visit our GitHub profiles:  
+[Jacob Beckfeld](https://github.com/JacobBeckfeld)  
+[Neil Burt](https://github.com/neilburt)  
+[Zachary Guldberg](https://github.com/zacharyjg00)  
+[Calvin Li](https://github.com/calvinli23)  
+  
+Or you can email us:  
+[Jacob Beckfeld](mailto:jacbeck456@gmail.com)  
+[Neil Burt](mailto:neil.burt@comcast.net)  
+[Zachary Guldberg](mailto:zacharyjg00@gmail.com)  
+[Calvin Li](mailto:calvinli12345@gmail.com)  
