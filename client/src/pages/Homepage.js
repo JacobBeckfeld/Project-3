@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button, Row, Col } from "reactstrap";
+import { Jumbotron, Button, Row, Col, Card, CardHeader, CardBody, CardTitle, CardText } from "reactstrap";
 import Navigation from '../components/Navigation';
 
 
@@ -12,17 +12,23 @@ function Homepage() {
                 <Navigation />
             </Jumbotron>
             <div className="text-center splash">
-                <h2>Stay Awhile and Listen!</h2>
-                <h4>Welcome to Diablo Source.</h4>
-                <h5>This hand-crafted, Blizzard-imbued resource comes on the heels of Blizzcon 2021 and is intended to bring to fans a resource of fellow players their heroes. We hope that you enjoy the experience as it is borne of hardwork, long hours, toil... And blood.</h5>
+                <Card className = "deckard">
+                    <CardHeader className="splash-header" tag="h2">Stay Awhile and Listen!</CardHeader>
+                    <CardBody className="splash-card">
+                        <CardTitle className="deckardTitle" tag="h1">Welcome to Diablo Source.</CardTitle>
+                        <CardText className="deckardText" tag="h5">
+                            This hand-crafted, Blizzard-imbued resource comes on the heels of Blizzcon 2021 and is intended to bring to fans a resource of fellow players and their heroes. We hope that you enjoy the experience as it is borne of hardwork, long hours, toil... And blood.
+                        </CardText>
+                    </CardBody>
+                <Row>
+                    <Col className="btn">
+                        <Button color="primary" size="lg">
+                            <iframe title="stay-awhile-and-listen-button" width="110" height="200" src="https://www.myinstants.com/instant/stay-a-while-and-listen/embed/" frameBorder="0" scrolling="no"></iframe>
+                        </Button>
+                    </Col>
+                </Row>
+                </Card>
             </div>
-            <Row>
-                <Col className="btn">
-                    <Button color="primary" size="lg">
-                        <iframe title="stay-awhile-and-listen-button" width="110" height="200" src="https://www.myinstants.com/instant/stay-a-while-and-listen/embed/" frameBorder="0" scrolling="no"></iframe>
-                    </Button>
-                </Col>
-            </Row>
         </>
     )
 }

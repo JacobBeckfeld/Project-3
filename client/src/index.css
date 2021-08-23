@@ -3,6 +3,7 @@ body {
   background-image: url("./imgs/background_textile.PNG");
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 64px;
 }
 
 /*Text Styling*/
@@ -22,6 +23,15 @@ a, Link{
 
 a.navWork {
   color: rgb(155, 15, 15);
+}
+
+a.navWork:hover {
+  color: rgb(255, 174, 0);
+}
+
+.splash-header.card-header {
+  background-image: url('./imgs/Character-info-background.jpg');
+  color: brown;
 }
 
 .card > .card-body > img {
@@ -53,6 +63,14 @@ a.navWork {
   width: 10%;
   max-width: 100%;
   justify-self: center;
+}
+
+/*Alert styling*/
+
+.save-btag-alert {
+  width: 25%;
+  min-width: 58px;
+  margin-top: 1rem;
 }
 
 
@@ -99,10 +117,11 @@ a.navWork {
 /* Character Info Styling*/
 
 .info{
-  background-image: url("./imgs/Character-info-background.jpg");
-  background-size: cover;
+  background-image: url("./imgs/lightning_gify.gif");
   text-align: center;
-
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .infoParent{
@@ -134,4 +153,45 @@ a.navWork {
 
 .splash {
   margin: 0 15% 6% 15%;
+}
+
+.skillTitle{
+  color: brown;
+}
+
+.skillsInfo{
+  color: rgb(189, 71, 3);
+}
+
+.theSkills{
+  color: rgb(189, 71, 3);
+  font-size: 1.5rem;
+}
+
+.skillText{
+  color: brown;
+  font-size: 1.25rem;
+}
+
+/*Deckard's Style ;)*/
+
+.deckard{
+  background-image: url("./imgs/Deckard.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.splash-card{
+  max-height: 500px;
+  min-height: 300px;
+}
+
+.deckardText{
+  font-size: 30px;
+  color: rgb(189, 71, 3);
+}
+
+.deckardTitle{
+  color: brown;
 }
