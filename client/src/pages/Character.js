@@ -31,7 +31,7 @@ const Character = () => {
     const handleSearch = async () => {
         try {
             const token = await getToken();
-            const results = await getCharacter("GammaRayBurt#1745", 116340438, token);
+            const results = await getCharacter(appCtx.appState.battleTag, appCtx.appState.heroId, token);
             console.log(results);
             setHero(results)
         } catch (error) {
