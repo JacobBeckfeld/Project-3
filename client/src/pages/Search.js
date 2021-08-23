@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Jumbotron, Container } from 'reactstrap';
+import { Link } from "react-router-dom"
 
 import Navigation from '../components/Navigation';
 import CharacterSearch from "../components/CharacterSearch";
@@ -14,6 +15,7 @@ const Search = () => {
     const [hero, setHero] = useState({});
 
     const handleSearch = async () => {
+        console.log(appCtx.appState.battleTag)
         if (appCtx.appState.battleTag) {
             try {
                 const token = await getToken();
@@ -29,12 +31,11 @@ const Search = () => {
     }
 
     useEffect(() => {
-        handleSearch()
+        handleSearch();
         // eslint-disable-next-line
     }, []);
 
 
-    
     return (
         <div>
             <Jumbotron fluid>
@@ -48,7 +49,7 @@ const Search = () => {
             <CharacterSearch />
             <h1 className="text-center"> Heroes </h1>
             <div className="row justify-content-center">
-                {appCtx.appState.heroes ? <CharacterCards heroes={appCtx.appState.heroes} /> : ""}
+                {appCtx.appState.heroes && appCtx.appState.battleTag ? <CharacterCards heroes={appCtx.appState.heroes} battletag={appCtx.appState.battleTag} /> : ""}
             </div>
         </div>
     );

@@ -8,6 +8,7 @@ import Navigation from '../components/Navigation';
 import { useState } from "react";
 import { getCharacter, getProfile, getToken } from "../utils/API";
 import { useEffect } from "react";
+import { useAppContext } from "../utils/AppContext";
 
 //name, class, level, paragonlevel, 
 
@@ -24,15 +25,13 @@ import { useEffect } from "react";
 
 
 const Character = () => {
+    const appCtx = useAppContext();
 
     const [hero, setHero] = useState({})
     const handleSearch = async () => {
-
         try {
             const token = await getToken();
-            const response = await getProfile("Laserrpg999#1705", token);
-            const results = await getCharacter("Laserrpg999#1705", `126040221`, token);
-            console.log(response)
+            const results = await getCharacter(appCtx.appState.battleTag, appCtx.appState.heroId, token);
             console.log(results);
             setHero(results)
 

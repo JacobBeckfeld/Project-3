@@ -20,7 +20,8 @@ const App = () => {
   const buildAppState = () => {
     let copyAppState = {
       battleTag: "",
-      heroes: []
+      heroes: [],
+      heroId: ""
     }
     setAppState(copyAppState);
   }
@@ -31,21 +32,19 @@ const App = () => {
 
 
   return (
-    <div>
-      <AppContext.Provider value={{ appState, setAppState }}>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/character" component={Character} />
-            <Route exact path="/characterSearch" component={CharacterSearch} />
-            <Route component={NoMatch} />
-          </Switch>
-        </Router>
-      </AppContext.Provider>
-    </div>
+    <AppContext.Provider value={{ appState, setAppState }}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/character" component={Character} />
+          <Route exact path="/characterSearch" component={CharacterSearch} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
+    </AppContext.Provider>
   )
 }
 

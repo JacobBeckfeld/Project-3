@@ -1,14 +1,17 @@
 import { React, useState, useEffect } from "react";
 import { getProfile, getToken } from "../utils/API";
 import { Jumbotron } from 'reactstrap';
+import { Link } from "react-router-dom"
 
 import Navigation from "../components/Navigation";
 import CharacterCards from "../components/CharacterCards";
 import BattletagAndInfo from "../components/BattletagAndInfo";
 
 import Auth from "../utils/auth";
+import { useAppContext } from "../utils/AppContext";
 
 const Dashboard = () => {
+    const appCtx = useAppContext();
 
     const [profile, setProfile] = useState({});
 
@@ -46,7 +49,7 @@ const Dashboard = () => {
 
             <div className="row justify-content-center">
                 {profile.heroes ?
-                    <CharacterCards heroes={profile.heroes} />
+                    <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
                     : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
                 }
             </div>
