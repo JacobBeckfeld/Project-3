@@ -34,7 +34,7 @@ No installation necessary; just visit the link in the [Usage](#usage) section be
   
 Users can sign-up to create an account with or without a BattleTag and search for other players or their characters and save them to their account for even easier access later. If the user provides a BattleTag with their sign-up, they can look at their own account and player information by default. Seasonal Leaderboards are accessed and displayed live on-load.
   
-Check out the [deployed app]().  
+Check out the [deployed app](https://desolate-chamber-11891.herokuapp.com/).  
   
 ## Screenshots  
 ![screenshot of Diablo Source homepage](./src/images/screenshot.jpg)  
