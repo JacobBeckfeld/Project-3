@@ -14,12 +14,8 @@ const CharacterCards = (props) => {
         console.log(charBattletag);
         const charId = e.target.getAttribute("id2");
         console.log(charId)
-        // appCtx.setAppState({ ...appCtx.appState, battleTag: charBattletag, heroId: charId });
-        // console.log(appCtx.appState);
-        //<Link to="/character"></Link>
         saveCharacterInfo({battleTag: charBattletag, heroId: charId});
-
-        
+        window.location.replace("/character")
     }
 
     return (
