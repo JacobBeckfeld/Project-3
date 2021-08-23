@@ -35,11 +35,12 @@ module.exports = {
         const token = signToken(user);
         res.json({ token, user });
     },
-    async saveProfile({ _id, battletag }, res) {
+    async saveProfile(req, res) {
+        console.log("id", req.body._id)
         try {
             const updatedUser = await User.findOneAndUpdate(
-                { _id: _id },
-                { $addToSet: { savedBattletags: battletag } },
+                { _id: req.body._id },
+                { $addToSet: { savedBattletags: req.body.battletag } },
                 { new: true }
             )
             return res.json(updatedUser)
