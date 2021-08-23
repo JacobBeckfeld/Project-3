@@ -39,7 +39,7 @@ module.exports = {
         res.json({ token, user });
     },
 
-    async updateProfile(req, res) {
+    async updateUserUsername(req, res) {
         console.log("body", req.body)
         try {
             const updateUsername = await User.findOneAndUpdate(
@@ -53,9 +53,22 @@ module.exports = {
             return res.status(400).json(err)
         }
     },
+
+    async updateUserEmail(req, res) {
+        try {
+            const updateEmail = await User.findOneAndUpdate(
+                { _id: req.body._id },
+                { $set: { email: req.body.email } },
+                { new: true }
+            )
+            return res.json(updateEmail)
+        } catch (err) {
+            console.log("newEmail", err)
+            return res.status(400).json(err)
+        }
+    },
     
     async saveProfile(req, res) {
-        console.log("id", req.body._id)
         try {
             const updatedUser = await User.findOneAndUpdate(
                 { _id: req.body._id },

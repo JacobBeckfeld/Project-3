@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { getProfile, getToken, updateProfile } from "../utils/API";
+import { getProfile, getToken, updateUserUsername, updateUserEmail } from "../utils/API";
 import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import Navigation from "../components/Navigation";
@@ -17,6 +17,7 @@ const Dashboard = () => {
 
     const User = Auth.getProfile().data;
     const _id = User._id;
+    const email = User.email;
     const username = User.username;
     const validBattletag = new RegExp(
         '/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/'
@@ -34,22 +35,40 @@ const Dashboard = () => {
         }
     }
 
-    const handleUpdateProfile =  async (_id, username) => {
+    const handleUpdateUserUsername =  async (_id, username) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
-        console.log("_id", _id)
-        console.log("username", username)
         if (!token) {
             return false;
         }
 
         try {
-            const response = await updateProfile(_id, username)
+            const response = await updateUserUsername(_id, username)
             const data = response.json()
 
             if (response.ok) {
                 console.log(response)
             } else {
-                alert('Failed to update profile');
+                alert('Failed to update username');
+            }
+        } catch (err) {
+            console.error(err)
+        }
+    };
+
+    const handleUpdateUserEmail =  async (_id, email) => {
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if (!token) {
+            return false;
+        }
+
+        try {
+            const response = await updateUserEmail(_id, email)
+            const data = response.json()
+
+            if (response.ok) {
+                console.log(response)
+            } else {
+                alert('Failed to update email');
             }
         } catch (err) {
             console.error(err)
@@ -86,7 +105,7 @@ const Dashboard = () => {
             <Jumbotron>
             <Form inline>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="newUsername" className="mr-sm-2">{User.username}</Label>
+                    <Label for="newUsername" className="mr-sm-2"></Label>
                     <Input 
                     type="text" 
                     id="newUsername"
@@ -96,7 +115,21 @@ const Dashboard = () => {
                 
                 />
                 </FormGroup>
-                <Button type="submit" onClick={() => handleUpdateProfile(_id, userFormData.username)} >Change username</Button>
+                <Button type="submit" onClick={() => handleUpdateUserUsername(_id, userFormData.username)} >Change Username</Button>
+            </Form>
+            <Form inline>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                    <Label for="newUsername" className="mr-sm-2"></Label>
+                    <Input 
+                    type="text" 
+                    id="newEmail"
+                    name="email" 
+                    placeholder="New email"
+                    onChange={handleInputChange}
+                
+                />
+                </FormGroup>
+                <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
             </Form>
             </Jumbotron>
             {/* Add in user profile stuff here! :) */}
