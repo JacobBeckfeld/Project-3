@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import { React, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AppContext } from './utils/AppContext';
+import { AppContext, AppProvider } from './utils/AppContext';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -15,24 +15,19 @@ import CharacterSearch from './components/CharacterSearch';
 
 
 const App = () => {
-  const [appState, setAppState] = useState({});
-
-  const buildAppState = () => {
-    let copyAppState = {
-      battleTag: "",
-      heroes: [],
-      heroId: ""
-    }
-    setAppState(copyAppState);
-  }
+  const [appState, setAppState] = useState({
+    battleTag: "",
+    heroes: [],
+    heroId: ""
+  });
 
   useEffect(() => {
-    buildAppState();
+    // buildAppState();
   }, [])
 
 
   return (
-    <AppContext.Provider value={{ appState, setAppState }}>
+    <AppContext.Provider value={{ appState, setAppState }} >
       <Router>
         <Switch>
           <Route exact path="/" component={Homepage} />

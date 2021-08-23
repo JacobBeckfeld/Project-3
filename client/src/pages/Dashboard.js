@@ -5,6 +5,7 @@ import { Jumbotron } from 'reactstrap';
 import Navigation from "../components/Navigation";
 import CharacterCards from "../components/CharacterCards";
 import BattletagAndInfo from "../components/BattletagAndInfo";
+import Leaderboard from "../components/Leaderboard";
 
 import Auth from "../utils/auth";
 
@@ -51,6 +52,7 @@ const Dashboard = () => {
             </div>
 
             {/* Add in user profile stuff here! :) */}
+            <Leaderboard />
         </div>
     );
 }
