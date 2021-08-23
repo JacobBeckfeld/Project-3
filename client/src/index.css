@@ -3,6 +3,7 @@ body {
   background-image: url("./imgs/background_textile.PNG");
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 64px;
 }
 
 /*Text Styling*/
@@ -22,6 +23,14 @@ a, Link{
 
 a.navWork {
   color: rgb(155, 15, 15);
+}
+
+a.navWork:hover {
+  color: rgb(255, 174, 0);
+}
+
+.splash-header.card-header {
+  background-image: url('./imgs/Character-info-background.jpg');
 }
 
 .card > .card-body > img {
