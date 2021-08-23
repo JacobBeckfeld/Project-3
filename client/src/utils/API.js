@@ -29,14 +29,13 @@ export const createUser = (userData) => {
     });
 };
 
-export const saveProfile = (battletag, token) => {
-    return fetch('/api/users/saved', {
+export const saveProfile = (_id, battletag) => {
+    return fetch('/api/users/dashboard', {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(battletag)
+        body: JSON.stringify({_id, battletag})
     })
 }
 

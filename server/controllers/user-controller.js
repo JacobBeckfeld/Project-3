@@ -35,17 +35,17 @@ module.exports = {
         const token = signToken(user);
         res.json({ token, user });
     },
-    async saveProfile({ user, body }, res) {
+    async saveProfile({ _id, battletag }, res) {
         try {
             const updatedUser = await User.findOneAndUpdate(
-                { _id: user._id },
-                { $addToSet: { savedBattletags: body } },
-                { new: true, runValidators: true }
+                { _id: _id },
+                { $addToSet: { savedBattletags: battletag } },
+                { new: true }
             )
             return res.json(updatedUser)
-        }catch (err) {
-        console.log("saveprofile", err)
-        return res.status(400).json(err)
+        } catch (err) {
+            console.log("saveprofile", err)
+            return res.status(400).json(err)
         }
     }
 }

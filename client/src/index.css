@@ -20,3 +20,17 @@ a, Link {
 .character-card {
   margin: 2.5px;
 }
+
+.homepageCard{
+  background-image: url("./imgs/diablo_homepage_card.jpg");
+  height: 500px;
+  max-height: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: rgb(155, 154, 150);
+}
+
+.homeTitle {
+  font-size: larger;
+}

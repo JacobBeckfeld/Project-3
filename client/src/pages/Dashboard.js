@@ -31,8 +31,8 @@ const Dashboard = () => {
         // eslint-disable-next-line
     }, []);
 
-    console.log(User);
-    console.log(profile)
+    console.log("User", User);
+    console.log("profile", profile)
 
     return (
         <div>
