@@ -55,13 +55,67 @@ a.navWork {
 }
 
 
+/*Equipment Card Styling*/
+.eImg{
+  width: 20%;
+  max-width: 100%;
+}
 
-.equipment {
-  content: "";
+.cardThing{
+  background-color: white;
+  opacity: 0.65;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.cardThing.eImg{
+  opacity: 1;
+}
+
+.eSub{
+  color: rgb(189, 71, 3);
+}
+
+.eTitle{
+  color: brown;
+}
+
+
+
+.equipment{
   background-image: url("./imgs/equipment_background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: .5;
+
 }
+
+
+/* Character Info Styling*/
+
+.info{
+  background-image: url("./imgs/Character-info-background.jpg");
+  background-size: cover;
+  text-align: center;
+
+}
+
+.infoParent{
+  margin: 1rem;
+  border-color: black;
+}
+
+.skills{
+  background-image: url("./imgs/Skills-Background3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+
+
 
