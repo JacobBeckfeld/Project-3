@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { getProfile, getToken, updateUserUsername, updateUserEmail } from "../utils/API";
-import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card } from 'reactstrap';
 
 import Navigation from "../components/Navigation";
 import CharacterCards from "../components/CharacterCards";
@@ -21,7 +21,7 @@ const Dashboard = () => {
     const username = User.username;
     const validBattletag = new RegExp(
         '/(^([A-zÀ-ú][A-zÀ-ú0-9]{2,11})|(^([а-яёА-ЯЁÀ-ú][а-яёА-ЯЁ0-9À-ú]{2,11})))(#[0-9]{4,})$/'
-      )
+    )
 
     const getUserProfile = async () => {
         if (User.battletag) {
@@ -92,46 +92,46 @@ const Dashboard = () => {
                 <p className="lead">Stay awhile and listen, {User.username}</p>
                 <Navigation />
             </Jumbotron>
-
-            <BattletagAndInfo profile={profile} />
-
-            <div className="row justify-content-center">
-                {profile.heroes ?
-                    <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
-                    : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
-                }
-            </div>
-
-            <Jumbotron>
-            <Form inline>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="newUsername" className="mr-sm-2"></Label>
-                    <Input 
-                    type="text" 
-                    id="newUsername"
-                    name="username" 
-                    placeholder="New username"
-                    onChange={handleInputChange}
-                
-                />
-                </FormGroup>
-                <Button type="submit" onClick={() => handleUpdateUserUsername(_id, userFormData.username)} >Change Username</Button>
-            </Form>
-            <Form inline>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="newUsername" className="mr-sm-2"></Label>
-                    <Input 
-                    type="text" 
-                    id="newEmail"
-                    name="email" 
-                    placeholder="New email"
-                    onChange={handleInputChange}
-                
-                />
-                </FormGroup>
-                <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
-            </Form>
-            </Jumbotron>
+                <BattletagAndInfo profile={profile} />
+                <div className="row justify-content-center">
+                    {profile.heroes ?
+                        <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
+                        : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
+                    }
+                </div>
+            <Row className="justify-content-end">
+                <Card className="col-4 infoChange">
+                    <h1>Change your profile information here!</h1>
+                    <Form inline>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label for="newUsername" className="mr-sm-2"></Label>
+                            <Input 
+                            type="text" 
+                            id="newUsername"
+                            name="username" 
+                            placeholder="New username"
+                            onChange={handleInputChange}
+                        
+                        />
+                        </FormGroup>
+                        <Button type="submit" onClick={() => handleUpdateUserUsername(_id, userFormData.username)} >Change Username</Button>
+                    </Form>
+                    <Form inline>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label for="newUsername" className="mr-sm-2"></Label>
+                            <Input 
+                            type="text" 
+                            id="newEmail"
+                            name="email" 
+                            placeholder="New email"
+                            onChange={handleInputChange}
+                        
+                        />
+                        </FormGroup>
+                        <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
+                    </Form>
+                </Card>S
+            </Row>
             {/* Add in user profile stuff here! :) */}
             {/* <Leaderboard /> */}
 
