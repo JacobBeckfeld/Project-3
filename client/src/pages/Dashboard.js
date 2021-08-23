@@ -50,10 +50,6 @@ const Dashboard = () => {
                 }
             </div>
 
-            <Jumbotron>
-
-            </Jumbotron>
-
             {/* Add in user profile stuff here! :) */}
         </div>
     );
