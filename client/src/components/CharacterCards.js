@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import { Card, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap';
-import { useAppContext } from "../utils/AppContext";
+// import { useAppContext } from "../utils/AppContext";
+import { saveCharacterInfo } from "../utils/localStorage";
 
 const CharacterCards = (props) => {
     console.log(props);
-    const appCtx = useAppContext();
+    // const appCtx = useAppContext();
 
     const renderCharacter = (e) => {
         e.preventDefault();
@@ -13,9 +14,12 @@ const CharacterCards = (props) => {
         console.log(charBattletag);
         const charId = e.target.getAttribute("id2");
         console.log(charId)
-        appCtx.setAppState({ ...appCtx.appState, battleTag: charBattletag, heroId: charId });
-        console.log(appCtx.appState);
+        // appCtx.setAppState({ ...appCtx.appState, battleTag: charBattletag, heroId: charId });
+        // console.log(appCtx.appState);
         //<Link to="/character"></Link>
+        saveCharacterInfo({battleTag: charBattletag, heroId: charId});
+
+        
     }
 
     return (
