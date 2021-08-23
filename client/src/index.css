@@ -99,10 +99,11 @@ a.navWork {
 /* Character Info Styling*/
 
 .info{
-  background-image: url("./imgs/Character-info-background.jpg");
-  background-size: cover;
+  background-image: url("./imgs/lightning_gify.gif");
   text-align: center;
-
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .infoParent{
@@ -134,4 +135,22 @@ a.navWork {
 
 .splash {
   margin: 0 15% 6% 15%;
+}
+
+.skillTitle{
+  color: brown;
+}
+
+.skillsInfo{
+  color: rgb(189, 71, 3);
+}
+
+.theSkills{
+  color: rgb(189, 71, 3);
+  font-size: 1.5rem;
+}
+
+.skillText{
+  color: brown;
+  font-size: 1.25rem;
 }
