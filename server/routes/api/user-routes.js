@@ -9,9 +9,9 @@ const {
 
 const { authMiddleware } = require('../../utils/auth');
 
-router.route('/').post(createUser).put(authMiddleware);
-router.route('/dashboard').get(authMiddleware, getUser);
+router.route('/').post(createUser);
+router.route('/dashboard').get(authMiddleware, getUser).put(saveProfile);
 router.route('/login').post(login);
-router.route('/saved').put(authMiddleware, saveProfile);
+// router.route('/saved').put(saveProfile);
 
 module.exports = router;
