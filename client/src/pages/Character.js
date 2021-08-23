@@ -6,7 +6,7 @@ import {
 import Navigation from '../components/Navigation';
 
 import { useState } from "react";
-import { getCharacter, getProfile, getToken } from "../utils/API";
+import { getCharacter, getToken } from "../utils/API";
 import { useEffect } from "react";
 import { useAppContext } from "../utils/AppContext";
 
@@ -39,9 +39,12 @@ const Character = () => {
             console.log(error);
         }
     }
+
     useEffect(() => {
         handleSearch()
+        // eslint-disable-next-line
     }, [])
+
     return (
         <div>
             <Jumbotron>
@@ -107,7 +110,7 @@ const Character = () => {
                         <Row className="justify-content-center">
                             <Col className="justify-content-center">
                                 <CardTitle className="eTitle" tag="h1">Equipment</CardTitle>
-                                <div className="cardThing"> 
+                                <div className="cardThing">
                                     <CardTitle className="eSub m-2" tag="h4" >Head: {hero.items ? hero.items.head.name : ""}</CardTitle>
                                     <CardImg className="eImg" top width="100%" src={hero.items ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.head.icon}.png` : ""} alt="Card image cap" />
                                 </div>
