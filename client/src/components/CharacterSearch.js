@@ -1,18 +1,14 @@
 import { Container, Col, Form, Button, Row, Input } from 'reactstrap';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { getProfile, getToken } from '../utils/API';
 import { useAppContext } from '../utils/AppContext';
 
 const CharacterSearch = () => {
   const appCtx = useAppContext();
   const [searchInput, setSearchInput] = useState('');
-  const [renderReady, setRenderReady] = useState(false);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // create state for holding returned google api data
-    // create state for holding our search field data
-
 
     if (!searchInput) {
       return false;
