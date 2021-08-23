@@ -1,18 +1,14 @@
 import { React, useState, useEffect } from "react";
 import { getProfile, getToken } from "../utils/API";
 import { Jumbotron } from 'reactstrap';
-import { Link } from "react-router-dom"
 
 import Navigation from "../components/Navigation";
 import CharacterCards from "../components/CharacterCards";
 import BattletagAndInfo from "../components/BattletagAndInfo";
 
 import Auth from "../utils/auth";
-import { useAppContext } from "../utils/AppContext";
 
 const Dashboard = () => {
-    const appCtx = useAppContext();
-
     const [profile, setProfile] = useState({});
 
     const User = Auth.getProfile().data;
