@@ -9,11 +9,13 @@ const CharacterCards = (props) => {
 
     const renderCharacter = (e) => {
         e.preventDefault();
+        console.log(e)
         const charBattletag = e.target.id;
         console.log(charBattletag);
         const charId = e.target.key;
         console.log(charId)
         appCtx.setAppState({ ...appCtx.appState, battleTag: charBattletag, heroId: charId });
+        console.log(appCtx.appState);
         <Link to="/character"></Link>
     }
 
