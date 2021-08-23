@@ -29,6 +29,15 @@ export const createUser = (userData) => {
     });
 };
 
+export const updateProfile = (_id, username) => {
+    return fetch('/api/users/dashboard', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({_id, username})
+    })
+}
 export const saveProfile = (_id, battletag) => {
     return fetch('/api/users/dashboard', {
         method: 'PUT',
