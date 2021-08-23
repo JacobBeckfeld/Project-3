@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import { React, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AppContext, AppProvider } from './utils/AppContext';
+import { AppContext } from './utils/AppContext';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';

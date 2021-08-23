@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Table } from "reactstrap";
-import { getToken, getLeaderboardData, getCharacter } from "../utils/API";
+import { getToken, getLeaderboardData } from "../utils/API";
 
 const Leaderboard = () => {
     const leaderboardTitles = ["Solo Barbarian Rift", "Solo Demon Hunter Rift", "Solo Witch Doctor Rift", "Solo Crusader Rift", "Solo Necromancer Rift", "Solo Wizard Rift", "Solo Monk Rift"];

@@ -7,8 +7,6 @@ import Navigation from '../components/Navigation';
 import { useState, useEffect } from "react";
 import { getCharacter, getToken } from "../utils/API";
 
-// import { useAppContext } from "../utils/AppContext";
-
 import { getSavedCharacter } from '../utils/localStorage';
 
 //name, class, level, paragonlevel, 
@@ -21,15 +19,12 @@ import { getSavedCharacter } from '../utils/localStorage';
 
 //stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
 
-//Try using global state process, try using usecontext or redux
-//use activities 1-12 for useContext
+
 
 
 const Character = () => {
-    // const appCtx = useAppContext();
-
     const [hero, setHero] = useState({})
-    const [character, setCharacter] = useState(getSavedCharacter());
+    const character = getSavedCharacter();
     const handleSearch = async () => {
         try {
             const token = await getToken();

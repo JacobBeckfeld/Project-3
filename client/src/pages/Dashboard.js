@@ -52,7 +52,7 @@ const Dashboard = () => {
             </div>
 
             {/* Add in user profile stuff here! :) */}
-            {/* <Leaderboard /> */}
+            <Leaderboard />
         </div>
     );
 }
