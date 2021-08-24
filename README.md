@@ -76,3 +76,4 @@ Or you can email us:
 - Implement test code using Jest
 - Formatting UI and making everything more intuitive
 - Get the hero name to display properly on the leaderboard
+- Refactor repetitive code
