@@ -241,4 +241,22 @@ a.navWork:hover {
   border-radius: 1rem;
 }
 
+/*Leaderboard Styling*/
 
+.leaderboard{
+  background-image: url("./imgs/Leader-Background.jpg");
+  background-repeat: round;
+  background-size: cover;
+  background-position: top;
+  
+}
+
+.leaderTitle{
+  font-size: 40px;
+  color: brown;
+}
+
+.leaderText{
+  font-size: 30px;
+  color: rgb(189, 71, 3);
+}
