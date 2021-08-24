@@ -59,9 +59,8 @@ a.navWork:hover {
   align-items: center;
 }
 
-.save-btg.btn {
-  max-width: 100%;
-  height: auto;
+button.save-btg.btn {
+  min-width: 110px;
 }
 
 .characterImg{

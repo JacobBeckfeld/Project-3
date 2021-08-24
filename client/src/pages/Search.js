@@ -72,7 +72,7 @@ const Search = () => {
                 <>
                     <div className="row justify-content-center">
                         <h1 className="text-center"> Hero results for Battle Tag: {appCtx.appState.battleTag}</h1>
-                    <Button xs="1" onClick={() => handleSaveProfile(_id, appCtx.appState.battleTag)} className="save-btag">Save Battletag</Button>
+                    <Button color="secondary" onClick={() => handleSaveProfile(_id, appCtx.appState.battleTag)} className="save-btag col-2">Save Battletag</Button>
                     <Alert className="save-btag-alert" color="info" isOpen={showAlert} toggle={onDismiss}>
                         BattleTag saved!
                     </Alert>
