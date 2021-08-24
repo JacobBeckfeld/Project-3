@@ -37,15 +37,17 @@ Users can sign-up to create an account with or without a BattleTag and search fo
 Check out the [deployed app](https://desolate-chamber-11891.herokuapp.com/).  
   
 ## Screenshots  
-![screenshot of Diablo Source homepage](./src/images/screenshot.jpg)  
+![screenshot of Diablo Source homepage](./client/src/imgs/homepage.PNG)  
   
 ---  
   
-![screenshot of Diablo Source on user dashboard page](./src/images/screenshot2.jpg)  
+![screenshot of Diablo Source on user dashboard page](./client/src/imgs/dashboard.PNG)  
+![screenshot of Diablo Source on user dashboard2 page](./client/src/imgs/dashboard2.PNG)  
   
 ---  
   
-![screenshot of Diablo Source search results page](./src/images/screenshot3.jpg)  
+![screenshot of Diablo Source character](./client/src/imgs/character.PNG)  
+![screenshot of Diablo Source character](./client/src/imgs/character2.PNG)  
   
 ## Contributing  
   
