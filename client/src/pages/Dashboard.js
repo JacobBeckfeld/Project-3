@@ -91,6 +91,9 @@ const Dashboard = () => {
                         <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
                         : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
                     }
+                </div>
+            {/* Add in user profile stuff here! :) */}
+            <Leaderboard />
             <Row className="justify-content-end">
                 <Card className="col-4 infoChange">
                     <h1>Change your profile information here!</h1>
@@ -124,9 +127,6 @@ const Dashboard = () => {
                     </Form>
                 </Card>
             </Row>
-                </div>
-            {/* Add in user profile stuff here! :) */}
-            <Leaderboard />
 
         </div>
     );
