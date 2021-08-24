@@ -34,7 +34,7 @@ const Leaderboard = () => {
 
                 <tbody>
                     {leaderboardData.map((leaderboard, idx) => (
-                        <tr>
+                        <tr key={idx}>
                             <td className="leaderText">{leaderboardTitles[idx]}</td>
                             <td className="leaderText">{leaderboard.leaderboardBattletag}</td>
                         </tr>
