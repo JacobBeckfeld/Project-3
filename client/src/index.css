@@ -130,11 +130,18 @@ a.navWork:hover {
 }
 
 .skills{
-  background-image: url("./imgs/Skills-Background3.jpg");
+  background-image: url("./imgs/Skills-Background4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   
+}
+
+.skills.stats {
+  background-image: url("./imgs/Skills-Background5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .homepageCard{
