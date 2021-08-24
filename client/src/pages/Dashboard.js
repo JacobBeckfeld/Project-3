@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
-import { getProfile, getToken, updateUserUsername, updateUserEmail, deleteUser } from "../utils/API";
-import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card } from 'reactstrap';
+import { getProfile, getToken, updateUserUsername, updateUserEmail, getSavedBattletags, deleteUser } from "../utils/API";
+import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card, CardTitle } from 'reactstrap';
 
 import Navigation from "../components/Navigation";
 import CharacterCards from "../components/CharacterCards";
@@ -10,14 +10,13 @@ import Leaderboard from "../components/Leaderboard";
 import Auth from "../utils/auth";
 
 const Dashboard = () => {
-
     const [profile, setProfile] = useState({});
+    const [User, setUser] = useState(Auth.getProfile().data);
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', battletag: '' });
-
-    const User = Auth.getProfile().data;
-    const _id = User._id;
+    const [savedBattletagsState, setSavedBattletags] = useState([]);
 
     const getUserProfile = async () => {
+        setUser(Auth.getProfile().data);
         if (User.battletag) {
             try {
                 const token = await getToken();
@@ -27,6 +26,16 @@ const Dashboard = () => {
                 console.log(error);
             }
         }
+    }
+
+    const getBattletags = () => {
+        getSavedBattletags(User._id)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                setSavedBattletags(data.savedBattletags);
+            })
     }
 
     const handleUpdateUserUsername = async (_id, username) => {
@@ -50,6 +59,7 @@ const Dashboard = () => {
 
     const handleUpdateUserEmail = async (_id, email) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
+
         if (!token) {
             return false;
         }
@@ -93,6 +103,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getUserProfile();
+        getBattletags();
         // eslint-disable-next-line
     }, []);
 
@@ -111,6 +122,20 @@ const Dashboard = () => {
                     : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
                 }
             </div>
+
+            <div className="row justify-content-center">
+                <h1 className="heroTitle">Your Saved Battletags!</h1>
+                {savedBattletagsState ?
+                    savedBattletagsState.map((battletag) => (
+                        <Card id={battletag}>
+                            <CardTitle className="heroCardTitle" tag="h2" id={battletag} >{battletag}</CardTitle>
+                        </Card>
+
+                    ))
+                    : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
+                }
+            </div>
+
             <Leaderboard />
             <Row className="justify-content-end">
                 <Card className="col-4 infoChange">
@@ -126,7 +151,7 @@ const Dashboard = () => {
                                 onChange={handleInputChange}
                             />
                         </FormGroup>
-                        <Button type="submit" onClick={() => handleUpdateUserUsername(_id, userFormData.username)} >Change Username</Button>
+                        <Button type="submit" onClick={() => handleUpdateUserUsername(User._id, userFormData.username)} >Change Username</Button>
                     </Form>
                     <Form inline>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -139,7 +164,7 @@ const Dashboard = () => {
                                 onChange={handleInputChange}
                             />
                         </FormGroup>
-                        <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
+                        <Button type="submit" onClick={() => handleUpdateUserEmail(User._id, userFormData.email)} >Change Email</Button>
                     </Form>
                     <Button onClick={() => handleDeleteUser(_id)} className="delete-user">DELETE MY ACCOUNT</Button>
                 </Card>

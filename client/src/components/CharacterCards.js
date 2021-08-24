@@ -11,7 +11,7 @@ const CharacterCards = (props) => {
         const charId = e.target.getAttribute("id2");
 
         saveCharacterInfo({ battleTag: charBattletag, heroId: charId });
-        window.location.replace("/character")
+        window.location.replace("/character");
     }
 
     return (

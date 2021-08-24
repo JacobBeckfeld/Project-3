@@ -10,6 +10,15 @@ export const getToken = async () => {
     return (await results.json()).access_token;
 }
 
+export const getSavedBattletags = (_id) => {
+    return fetch(`/api/users/dashboard/${_id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+}
+
 export const getUser = (token) => {
     return fetch("/api/users/dashboard", {
         headers: {
