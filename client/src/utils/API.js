@@ -46,7 +46,7 @@ export const updateUserUsername = (_id, username) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({_id, username})
+        body: JSON.stringify({ _id, username })
     });
 };
 
@@ -57,7 +57,7 @@ export const updateUserEmail = (_id, email) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({_id, email})
+        body: JSON.stringify({ _id, email })
     });
 };
 
@@ -95,8 +95,6 @@ export const getCharacter = async (battletag, heroID, accessToken) => {
     return (await fetch(`https://us.api.blizzard.com/d3/profile/${newBattletag}/hero/${heroID}?locale=en_US&access_token=${accessToken}`)).json();
 }
 
-
-
 export const getLeaderboardData = async (accessToken) => {
     const leaderboardSearches = ["rift-barbarian", "rift-dh", "rift-wd", "rift-crusader", "rift-necromancer", "rift-wizard", "rift-monk"];
 
@@ -107,7 +105,7 @@ export const getLeaderboardData = async (accessToken) => {
         let leaderboardData = (await (await fetch(`https://us.api.blizzard.com/data/d3/era/${currentEra}/leaderboard/${leaderboard}?access_token=${accessToken}`)).json()).row[0].player[0].data;
         let leaderboardBattletag = leaderboardData[0].string;
         let leaderboardHero = leaderboardData[leaderboardData.length - 1].number;
-        currentLeaderboard.push({leaderboardBattletag, leaderboardHero});
+        currentLeaderboard.push({ leaderboardBattletag, leaderboardHero });
     });
 
     return currentLeaderboard;

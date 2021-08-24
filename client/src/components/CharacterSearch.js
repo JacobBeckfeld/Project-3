@@ -15,17 +15,14 @@ const CharacterSearch = () => {
     }
 
     try {
-
       const token = await getToken();
       const response = await getProfile(searchInput, token);
-      console.log(response)
 
-      //battleTag, paragonLevel, guildName     
       if (response.battleTag) {
         console.log("here")
         await appCtx.setAppState({ ...appCtx.appState, battleTag: response.battleTag, heroes: response.heroes });
       }
-      console.log(appCtx.appState)
+
       setSearchInput('');
     } catch (err) {
       console.error(err);

@@ -6,11 +6,10 @@ const CharacterCards = (props) => {
 
     const renderCharacter = (e) => {
         e.preventDefault();
-        console.log(e);
+
         const charBattletag = e.target.id;
-        console.log(charBattletag);
         const charId = e.target.getAttribute("id2");
-        console.log(charId)
+
         saveCharacterInfo({ battleTag: charBattletag, heroId: charId });
         window.location.replace("/character")
     }
