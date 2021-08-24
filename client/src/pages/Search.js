@@ -25,9 +25,6 @@ const Search = () => {
                 const token = await getToken();
                 const response = await getProfile(appCtx.appState.battleTag, token);
                 console.log(response);
-
-                setHero(response);
-
             } catch (error) {
                 console.log(error);
             }

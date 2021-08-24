@@ -1,6 +1,6 @@
 import {
     Card, CardImg, CardTitle, CardText, CardDeck,
-    CardSubtitle, CardBody, Jumbotron, Col, Row
+    CardSubtitle, CardBody, Jumbotron, Col, Row, Spinner
 } from 'reactstrap';
 import Navigation from '../components/Navigation';
 
@@ -8,21 +8,6 @@ import { useState, useEffect } from "react";
 import { getCharacter, getToken } from "../utils/API";
 
 import { getSavedCharacter } from '../utils/localStorage';
-
-//name, class, level, paragonlevel, 
-
-//skills: name, icon, description, rune: name, description
-
-//equipment(items): head: name, icon, neck: name, icon, torso: name, icon, shoulders: name, icon, legs: name, icon, waist: name, icon, hands: name, icon, bracers: name, icon, feet: name, icon, leftFinger: name, icon, rightFinger: name, icon, mainHand: name, icon, offHand: name, icon
-
-//highestSoloRiftCompleted
-
-//stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
-
-
-//appCtx.appState.battleTag, appCtx.appState.heroId, token)
-
-
 
 const Character = () => {
     const [hero, setHero] = useState({})
@@ -71,8 +56,8 @@ const Character = () => {
                                     <CardImg className="characterImg" top width="" src={hero.skills ? (hero.skills.active[0] ? `http://media.blizzard.com/d3/icons/skills/64/${hero.skills.active[0].skill.icon}.png` : "") : ""} alt="Card image cap" />
                                     <CardText className="skillText">{hero.skills ? (hero.skills.active[0] ? hero.skills.active[0].skill.description : "") : ""}</CardText>
                                 </div>
-                                : "")
-                            : ""}
+                                : <Spinner color="danger" />)
+                            : <Spinner color="danger" />}
                         {hero.skills ?
                             (hero.skills.active[0] ?
                                 <div>
@@ -187,8 +172,8 @@ const Character = () => {
                                             <CardTitle className="eSub m-2" tag="h4" >Head: {hero.items ? (hero.items.head ? hero.items.head.name : "") : ""}</CardTitle>
                                             <CardImg className="eImg" top width="100%" src={hero.items ? (hero.items.head ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.head.icon}.png` : "") : ""} alt="Card image cap" />
                                         </div>
-                                        : "")
-                                    : ""}
+                                        : <Spinner color="danger" />)
+                                    : <Spinner color="danger" />}
 
                                 {hero.items ?
                                     (hero.items.neck ?
