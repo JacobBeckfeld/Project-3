@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { getProfile, getToken, updateUserUsername, updateUserEmail } from "../utils/API";
+import { getProfile, getToken, updateUserUsername, updateUserEmail, deleteUser } from "../utils/API";
 import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card } from 'reactstrap';
 
 import Navigation from "../components/Navigation";
@@ -72,6 +72,21 @@ const Dashboard = () => {
         setUserFormData({ ...userFormData, [name]: value })
     }
 
+    const handleDeleteUser = async (_id) => {
+        try {
+            const response = await deleteUser(_id)
+
+            if (response.ok) {
+                console.log(response)
+
+            } else {
+                alert('Failed to delete user');
+            }
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     useEffect(() => {
         getUserProfile();
         // eslint-disable-next-line
@@ -125,6 +140,7 @@ const Dashboard = () => {
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
                     </Form>
+                    <Button onClick={() => handleDeleteUser(_id)} className="delete-user">DELETE MY ACCOUNT</Button>
                 </Card>
             </Row>
 
