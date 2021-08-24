@@ -11,8 +11,6 @@ import Auth from '../utils/auth';
 
 const Search = () => {
     const appCtx = useAppContext();
-
-    const [hero, setHero] = useState({});
     const [showAlert, setShowAlert] = useState(false);
 
     const _id = Auth.getProfile().data._id

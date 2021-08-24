@@ -172,7 +172,7 @@ const Character = () => {
                                             <CardTitle className="eSub m-2" tag="h4" >Head: {hero.items ? (hero.items.head ? hero.items.head.name : "") : ""}</CardTitle>
                                             <CardImg className="eImg" top width="100%" src={hero.items ? (hero.items.head ? `http://media.blizzard.com/d3/icons/items/large/${hero.items.head.icon}.png` : "") : ""} alt="Card image cap" />
                                         </div>
-                                        : <Spinner color="danger" />)
+                                        : "")
                                     : <Spinner color="danger" />}
 
                                 {hero.items ?

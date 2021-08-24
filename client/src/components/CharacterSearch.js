@@ -15,7 +15,6 @@ const CharacterSearch = () => {
     }
 
     try {
-
       const token = await getToken();
       const response = await getProfile(searchInput, token);
       console.log(response)

@@ -10,6 +10,15 @@ export const getToken = async () => {
     return (await results.json()).access_token;
 }
 
+export const getSavedBattletags = (_id) => {
+    return fetch(`/api/users/dashboard/${_id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+}
+
 export const getUser = (token) => {
     return fetch("/api/users/dashboard", {
         headers: {
@@ -36,7 +45,7 @@ export const updateUserUsername = (_id, username) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({_id, username})
+        body: JSON.stringify({ _id, username })
     });
 };
 
@@ -47,7 +56,7 @@ export const updateUserEmail = (_id, email) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({_id, email})
+        body: JSON.stringify({ _id, email })
     });
 };
 
@@ -97,7 +106,7 @@ export const getLeaderboardData = async (accessToken) => {
         let leaderboardData = (await (await fetch(`https://us.api.blizzard.com/data/d3/era/${currentEra}/leaderboard/${leaderboard}?access_token=${accessToken}`)).json()).row[0].player[0].data;
         let leaderboardBattletag = leaderboardData[0].string;
         let leaderboardHero = leaderboardData[leaderboardData.length - 1].number;
-        currentLeaderboard.push({leaderboardBattletag, leaderboardHero});
+        currentLeaderboard.push({ leaderboardBattletag, leaderboardHero });
     });
 
     return currentLeaderboard;

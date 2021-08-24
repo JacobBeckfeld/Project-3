@@ -8,11 +8,9 @@ const CharacterCards = (props) => {
         e.preventDefault();
         console.log(e);
         const charBattletag = e.target.id;
-        console.log(charBattletag);
         const charId = e.target.getAttribute("id2");
-        console.log(charId)
         saveCharacterInfo({ battleTag: charBattletag, heroId: charId });
-        window.location.replace("/character")
+        window.location.replace("/character");
     }
 
     return (

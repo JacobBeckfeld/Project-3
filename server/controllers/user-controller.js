@@ -24,6 +24,16 @@ module.exports = {
         res.status(200).json(user);
     },
 
+    async getSavedBattletags({ params }, res) {
+        const userData = await User.findOne({ _id: params.id });
+
+        if (!userData) {
+            return res.status(400).json({ message: "Unable to find user" });
+        }
+        
+        res.status(200).json(userData);
+    },
+
     async login({ body }, res) {
         const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
         if (!user) {
@@ -67,7 +77,7 @@ module.exports = {
             return res.status(400).json(err)
         }
     },
-    
+
     async saveProfile(req, res) {
         try {
             const updatedUser = await User.findOneAndUpdate(
