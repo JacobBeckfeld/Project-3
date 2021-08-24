@@ -59,6 +59,11 @@ a.navWork:hover {
   align-items: center;
 }
 
+.save-btg.btn {
+  max-width: 100%;
+  height: auto;
+}
+
 .characterImg{
   width: 10%;
   max-width: 100%;
