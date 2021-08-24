@@ -9,21 +9,6 @@ import { getCharacter, getToken } from "../utils/API";
 
 import { getSavedCharacter } from '../utils/localStorage';
 
-//name, class, level, paragonlevel, 
-
-//skills: name, icon, description, rune: name, description
-
-//equipment(items): head: name, icon, neck: name, icon, torso: name, icon, shoulders: name, icon, legs: name, icon, waist: name, icon, hands: name, icon, bracers: name, icon, feet: name, icon, leftFinger: name, icon, rightFinger: name, icon, mainHand: name, icon, offHand: name, icon
-
-//highestSoloRiftCompleted
-
-//stats: life, damage, toughness, healing, attackspeed, armor, strength, dexterity, vitality, intelligence, physicalResist. fireResist, coldResist, lightningResist, poisonResist, arcaneResist, critChance, thorns, lifeSteal, lifePerKill, lifeOnHit
-
-
-//appCtx.appState.battleTag, appCtx.appState.heroId, token)
-
-
-
 const Character = () => {
     const [hero, setHero] = useState({})
     const character = getSavedCharacter();
