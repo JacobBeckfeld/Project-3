@@ -41,10 +41,6 @@ const BattletagAndInfo = (props) => {
             <p className="lead">Season Paragon Level: {profile.paragonLevelSeason}  </p>
             <p className="lead">Hardcore Season Paragon Level: {profile.paragonLevelSeasonHardcore}  </p>
             <p className="lead">Guild: {profile.guildName} </p>
-            <Button onClick={() => handleSaveProfile(_id, battletag)} className="save-btag">Save Battletag</Button>
-            <Alert className="save-btag-alert" color="info" isOpen={showAlert} toggle={onDismiss}>
-                BattleTag saved!
-            </Alert>
         </Container>
     );
 }
