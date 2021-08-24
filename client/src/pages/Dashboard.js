@@ -119,20 +119,21 @@ const Dashboard = () => {
                 <h1 className="heroTitle">Your Heroes!</h1>
                 {profile.heroes ?
                     <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
-                    : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
+                    : <p>It looks like you don't have a battletag entered into your account.</p>
                 }
             </div>
 
             <div className="battleParent row justify-content-center">
                 <h1 className="heroTitle">Your Saved Battletags!</h1>
                 {savedBattletagsState ?
-                    savedBattletagsState.map((battletag) => (
-                        <Card className="col-2 m-1 battleTagCard" id={battletag}>
-                            <CardTitle className="battleTagThing" tag="h2" id={battletag} >{battletag}</CardTitle>
+
+                    savedBattletagsState.map((battletag, idx) => (
+                        <Card key={idx} id={battletag}>
+                            <CardTitle className="heroCardTitle" tag="h2" id={battletag} >{battletag}</CardTitle>
                         </Card>
 
                     ))
-                    : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
+                    : <p>It looks like you don't have any saved battletags! Go to the search bar to begin saving!</p>
                 }
             </div>
 
