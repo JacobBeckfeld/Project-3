@@ -124,12 +124,12 @@ const Dashboard = () => {
             </div>
 
             <div className="battleParent row justify-content-center">
-                <h1 className="heroTitle">Your Saved Battletags!</h1>
+                <h1 className="yourBattle">Your Saved Battletags!</h1>
                 {savedBattletagsState ?
 
                     savedBattletagsState.map((battletag, idx) => (
-                        <Card key={idx} id={battletag}>
-                            <CardTitle className="heroCardTitle" tag="h2" id={battletag} >{battletag}</CardTitle>
+                        <Card  className="battleTagCard col-2 m-2" key={idx} id={battletag}>
+                            <CardTitle className="battleTagThing" tag="h2" id={battletag} >{battletag}</CardTitle>
                         </Card>
 
                     ))
