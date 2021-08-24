@@ -24,22 +24,20 @@ const Leaderboard = () => {
 
     console.log(leaderboardData);
     return (
-        <Card>
+        <Card className="leaderboard">
             <Table>
                 <thead>
                     <tr>
-                        <th>Leaderboard</th>
-                        <th>Battletag</th>
-                        <th>Hero Name</th>
+                        <th className="leaderTitle">Leaderboard</th>
+                        <th className="leaderTitle">Battletag</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {leaderboardData.map((leaderboard, idx) => (
                         <tr>
-                            <td>{leaderboardTitles[idx]}</td>
-                            <td>{leaderboard.leaderboardBattletag}</td>
-                            <td>{leaderboard.leaderboardHero}</td>
+                            <td className="leaderText">{leaderboardTitles[idx]}</td>
+                            <td className="leaderText">{leaderboard.leaderboardBattletag}</td>
                         </tr>
                     ))}
                 </tbody>

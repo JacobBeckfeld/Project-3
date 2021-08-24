@@ -164,20 +164,37 @@ a.navWork:hover {
 
 .skillTitle{
   color: brown;
+  background-color: white;
+  opacity: .65;
+  border-radius: 1rem;
+  padding-left: 10px;
 }
 
 .skillsInfo{
   color: rgb(189, 71, 3);
+  background-color: white;
+  opacity: .65;
+  border-radius: 1rem;
+  padding-left: 10px;
 }
 
 .theSkills{
   color: rgb(189, 71, 3);
   font-size: 1.5rem;
+  background-color: white;
+  opacity: .65;
+  border-radius: 1rem;
+  padding-left: 10px;
 }
 
 .skillText{
   color: brown;
   font-size: 1.25rem;
+  background-color: white;
+  opacity: .65;
+  border-radius: 1rem;
+  padding-left: 10px;
+
 }
 
 /*Deckard's Style ;)*/
@@ -248,4 +265,22 @@ a.navWork:hover {
   border-radius: 1rem;
 }
 
+/*Leaderboard Styling*/
 
+.leaderboard{
+  background-image: url("./imgs/Leader-Background.jpg");
+  background-repeat: round;
+  background-size: cover;
+  background-position: top;
+  
+}
+
+.leaderTitle{
+  font-size: 40px;
+  color: brown;
+}
+
+.leaderText{
+  font-size: 30px;
+  color: rgb(189, 71, 3);
+}
