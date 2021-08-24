@@ -251,6 +251,7 @@ a.navWork:hover {
   background-color: white;
   opacity: .75;
   border-radius: 1rem;
+  padding-left: 1rem;
   
 }
 
@@ -260,6 +261,7 @@ a.navWork:hover {
   background-color: white;
   opacity: .75;
   border-radius: 1rem;
+  padding-left: 1rem;
 }
 
 .heroText{
@@ -269,6 +271,7 @@ a.navWork:hover {
   background-color: white;
   opacity: .75;
   border-radius: 1rem;
+  padding-left: 1rem;
 }
 
 /*Leaderboard Styling*/
