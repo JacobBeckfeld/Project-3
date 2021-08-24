@@ -66,3 +66,11 @@ Or you can email us:
 [Neil Burt](mailto:neil.burt@comcast.net)  
 [Zachary Guldberg](mailto:zacharyjg00@gmail.com)  
 [Calvin Li](mailto:calvinli12345@gmail.com)  
+
+## TODO
+
+- Add linking between saved battletags and when clicked will render a search with the results for the saved battletags
+- Remove usage of localStorage when linking character cards to the character page and leverage appContext or Redux instead
+- Implement test code using Jest
+- Formatting UI and making everything more intuitive
+- Get the hero name to display properly on the leaderboard
