@@ -29,6 +29,16 @@ export const createUser = (userData) => {
     });
 };
 
+export const deleteUser = (_id) => {
+    return fetch('/api/users/dashboard', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ _id })
+    })
+}
+
 export const updateUserUsername = (_id, username) => {
     console.log(_id, username)
     return fetch('/api/users/dashboard/username', {
