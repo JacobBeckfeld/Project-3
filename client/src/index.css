@@ -14,6 +14,7 @@ p, h1, h2, h3, h4 {
 }
 
 /* Link Color*/
+
 a, Link{
   font-family: 'Grenze Gotisch';
   font-size: 1.25rem;
@@ -43,7 +44,6 @@ a.navWork:hover {
 .character-card {
   margin: 2.5px;
 }
-
 
 /*Jumbotron styling*/
 
@@ -78,8 +78,8 @@ a.navWork:hover {
   margin-top: 1rem;
 }
 
-
 /*Equipment Card Styling*/
+
 .eImg{
   width: 20%;
   max-width: 100%;
@@ -108,8 +108,6 @@ a.navWork:hover {
   color: brown;
 }
 
-
-
 .equipment{
   background-image: url("./imgs/equipment_background.jpg");
   background-repeat: no-repeat;
@@ -117,7 +115,6 @@ a.navWork:hover {
   background-position: center;
   border-color: black;
 }
-
 
 /* Character Info Styling*/
 

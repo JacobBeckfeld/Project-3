@@ -16,7 +16,7 @@ const Character = () => {
         try {
             const token = await getToken();
             const results = await getCharacter(character.battleTag, character.heroId, token);
-            console.log(results);
+
             setHero(results)
         } catch (error) {
             console.log(error);
@@ -287,7 +287,6 @@ const Character = () => {
                         </Row>
                     </CardBody>
                 </Card>
-
 
                 <Card>
                     <CardBody className="skills stats">

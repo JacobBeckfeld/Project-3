@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { getProfile, getToken, updateUserUsername, updateUserEmail } from "../utils/API";
+import { getProfile, getToken, updateUserUsername, updateUserEmail, deleteUser } from "../utils/API";
 import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card } from 'reactstrap';
 
 import Navigation from "../components/Navigation";
@@ -29,7 +29,7 @@ const Dashboard = () => {
         }
     }
 
-    const handleUpdateUserUsername =  async (_id, username) => {
+    const handleUpdateUserUsername = async (_id, username) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;
@@ -48,7 +48,7 @@ const Dashboard = () => {
         }
     };
 
-    const handleUpdateUserEmail =  async (_id, email) => {
+    const handleUpdateUserEmail = async (_id, email) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;
@@ -66,10 +66,27 @@ const Dashboard = () => {
             console.error(err)
         }
     };
-    
+
     const handleInputChange = (event) => {
         const { name, value } = event.target
         setUserFormData({ ...userFormData, [name]: value })
+    }
+
+    const handleDeleteUser = async (_id) => {
+        try {
+            const response = await deleteUser(_id)
+
+            if (response.ok) {
+                console.log(response)
+                localStorage.removeItem('id_token')
+                window.location.replace('/')
+
+            } else {
+                alert('Failed to delete user');
+            }
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     useEffect(() => {
@@ -84,15 +101,14 @@ const Dashboard = () => {
                 <p className="lead">Stay awhile and listen, {User.username}</p>
                 <Navigation />
             </Jumbotron>
-                <BattletagAndInfo profile={profile} />
-                <div className="row justify-content-center">
-                    <h1 className="heroTitle">Your Heroes!</h1>
-                    {profile.heroes ?
-                        <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
-                        : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
-                    }
-                </div>
-            {/* Add in user profile stuff here! :) */}
+            <BattletagAndInfo profile={profile} />
+            <div className="row justify-content-center">
+                <h1 className="heroTitle">Your Heroes!</h1>
+                {profile.heroes ?
+                    <CharacterCards heroes={profile.heroes} battletag={User.battletag} />
+                    : <p>It looks like you don't have a battletag entered into your account. Click below to go and add a profile!</p>
+                }
+            </div>
             <Leaderboard />
             <Row className="justify-content-end">
                 <Card className="col-4 infoChange">
@@ -100,34 +116,32 @@ const Dashboard = () => {
                     <Form inline>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="newUsername" className="mr-sm-2"></Label>
-                            <Input 
-                            type="text" 
-                            id="newUsername"
-                            name="username" 
-                            placeholder="New username"
-                            onChange={handleInputChange}
-                        
-                        />
+                            <Input
+                                type="text"
+                                id="newUsername"
+                                name="username"
+                                placeholder="New username"
+                                onChange={handleInputChange}
+                            />
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserUsername(_id, userFormData.username)} >Change Username</Button>
                     </Form>
                     <Form inline>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="newUsername" className="mr-sm-2"></Label>
-                            <Input 
-                            type="text" 
-                            id="newEmail"
-                            name="email" 
-                            placeholder="New email"
-                            onChange={handleInputChange}
-                        
-                        />
+                            <Input
+                                type="text"
+                                id="newEmail"
+                                name="email"
+                                placeholder="New email"
+                                onChange={handleInputChange}
+                            />
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserEmail(_id, userFormData.email)} >Change Email</Button>
                     </Form>
+                    <Button onClick={() => handleDeleteUser(_id)} className="delete-user">DELETE MY ACCOUNT</Button>
                 </Card>
             </Row>
-
         </div>
     );
 }
