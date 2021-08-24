@@ -16,7 +16,7 @@ const CharacterCards = (props) => {
 
     return (
         props.heroes.map((hero) => (
-            <Card className="col-3 character-card characterCard" key={hero.id} id={props.battletag} id2={hero.id} onClick={renderCharacter}>
+            <Card className="col-md-3 col-sm-6 character-card characterCard" key={hero.id} id={props.battletag} id2={hero.id} onClick={renderCharacter}>
                 <CardBody id={props.battletag} id2={hero.id}>
                     <CardTitle className="heroCardTitle" tag="h2" id={props.battletag} id2={hero.id}>Character Name: {hero.name}</CardTitle>
                     <CardSubtitle tag="h4" className="mb-2 heroSub" id={props.battletag} id2={hero.id}>Character Class: {hero.class}</CardSubtitle>
