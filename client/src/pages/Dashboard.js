@@ -78,8 +78,10 @@ const Dashboard = () => {
 
             if (response.ok) {
                 console.log(response)
+
                 localStorage.removeItem('id_token')
                 window.location.replace('/')
+
 
             } else {
                 alert('Failed to delete user');

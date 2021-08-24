@@ -67,7 +67,7 @@ module.exports = {
             return res.status(400).json(err)
         }
     },
-    
+
     async saveProfile(req, res) {
         try {
             const updatedUser = await User.findOneAndUpdate(
@@ -98,6 +98,26 @@ module.exports = {
             return res.json(deletedUser)
         } catch (err) {
             console.log("delete profile", err)
+            return res.status(400).json(err)
+        }
+    },
+
+    async deleteUser(req, res) {
+        try {
+            const deletedUser = await User.findOneAndDelete(
+                { _id: req.body._id },
+                function (err, docs) {
+                    if (err){
+                        console.log(err)
+                    }
+                    else{
+                        console.log("Deleted : ", docs);
+                    }
+                }
+            )
+            return res.json(deletedUser)
+        } catch (err) {
+            console.log("saveprofile", err)
             return res.status(400).json(err)
         }
     }
