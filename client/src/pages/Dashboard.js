@@ -166,7 +166,7 @@ const Dashboard = () => {
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserEmail(User._id, userFormData.email)} >Change Email</Button>
                     </Form>
-                    <Button onClick={() => handleDeleteUser(User._id)} className="delete-user">DELETE MY ACCOUNT</Button>
+                    <Button onClick={() => handleDeleteUser(User._id)} className="btn-sm col-3 delete-user">DELETE MY ACCOUNT</Button>
                 </Card>
             </Row>
         </div>
