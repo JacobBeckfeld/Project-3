@@ -15,14 +15,13 @@ const CharacterSearch = () => {
     }
 
     try {
+
       const token = await getToken();
       const response = await getProfile(searchInput, token);
-
       if (response.battleTag) {
         console.log("here")
         await appCtx.setAppState({ ...appCtx.appState, battleTag: response.battleTag, heroes: response.heroes });
       }
-
       setSearchInput('');
     } catch (err) {
       console.error(err);
