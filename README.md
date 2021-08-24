@@ -32,7 +32,7 @@ No installation necessary; just visit the link in the [Usage](#usage) section be
     
 ## Usage  
   
-Users can sign-up to create an account with or without a BattleTag and search for other players or their characters and save them to their account for even easier access later. If the user provides a BattleTag with their sign-up, they can look at their own account and player information by default. Seasonal Leaderboards are accessed and displayed live on-load.
+Users can sign-up to create an account with or without a BattleTag and search for other players or their characters and save them to their account for even easier access later. If the user provides a BattleTag with their sign-up, they can look at their own account and player information by default. Seasonal Leaderboards are accessed and displayed live on-load. An example battletag to search for if you have none is Laserrpg999#1705.
   
 Check out the [deployed app](https://desolate-chamber-11891.herokuapp.com/).  
   
