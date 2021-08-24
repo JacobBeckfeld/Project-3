@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Jumbotron } from 'reactstrap';
 
 import Navigation from '../components/Navigation';
@@ -11,8 +11,6 @@ import { useAppContext } from "../utils/AppContext";
 const Search = () => {
     const appCtx = useAppContext();
 
-    const [hero, setHero] = useState({});
-
     const handleSearch = async () => {
         console.log(appCtx.appState.battleTag)
         if (appCtx.appState.battleTag) {
@@ -20,9 +18,6 @@ const Search = () => {
                 const token = await getToken();
                 const response = await getProfile(appCtx.appState.battleTag, token);
                 console.log(response);
-
-                setHero(response);
-
             } catch (error) {
                 console.log(error);
             }
