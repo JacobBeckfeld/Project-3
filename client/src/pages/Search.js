@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Jumbotron, Container } from 'reactstrap';
+import { Jumbotron } from 'reactstrap';
 
 import Navigation from '../components/Navigation';
 import CharacterSearch from "../components/CharacterSearch";
@@ -38,15 +38,11 @@ const Search = () => {
     return (
         <div>
             <Jumbotron fluid>
-                <Container fluid>
-                    <h1 className="display-3">Hello, {hero.battleTag} </h1>
-                    <p className="lead">Paragon Level: {hero.paragonLevel}  </p>
-                    <p className="lead">Guild: {hero.guildName} </p>
-                </Container>
+                <h1 className="display-3">Character Search</h1>
                 <Navigation />
             </Jumbotron>
             <CharacterSearch />
-            <h1 className="text-center"> Heroes </h1>
+            <h1 className="text-center"> Hero results for Battle Tag: {appCtx.appState.battleTag}</h1>
             <div className="row justify-content-center">
                 {appCtx.appState.heroes && appCtx.appState.battleTag ? <CharacterCards heroes={appCtx.appState.heroes} battletag={appCtx.appState.battleTag} /> : ""}
             </div>
