@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { getProfile, getToken, updateUserUsername, updateUserEmail, getSavedBattletags } from "../utils/API";
+import { getProfile, getToken, updateUserUsername, updateUserEmail, getSavedBattletags, deleteUser } from "../utils/API";
 import { Jumbotron, Button, Form, FormGroup, Label, Input, Row, Card, CardTitle } from 'reactstrap';
 
 import Navigation from "../components/Navigation";
@@ -82,6 +82,25 @@ const Dashboard = () => {
         setUserFormData({ ...userFormData, [name]: value })
     }
 
+    const handleDeleteUser = async (_id) => {
+        try {
+            const response = await deleteUser(_id)
+
+            if (response.ok) {
+                console.log(response)
+
+                localStorage.removeItem('id_token')
+                window.location.replace('/')
+
+
+            } else {
+                alert('Failed to delete user');
+            }
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     useEffect(() => {
         getUserProfile();
         getBattletags();
@@ -130,7 +149,6 @@ const Dashboard = () => {
                                 name="username"
                                 placeholder="New username"
                                 onChange={handleInputChange}
-
                             />
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserUsername(User._id, userFormData.username)} >Change Username</Button>
@@ -144,14 +162,13 @@ const Dashboard = () => {
                                 name="email"
                                 placeholder="New email"
                                 onChange={handleInputChange}
-
                             />
                         </FormGroup>
                         <Button type="submit" onClick={() => handleUpdateUserEmail(User._id, userFormData.email)} >Change Email</Button>
                     </Form>
+                    <Button onClick={() => handleDeleteUser(_id)} className="delete-user">DELETE MY ACCOUNT</Button>
                 </Card>
             </Row>
-
         </div>
     );
 }

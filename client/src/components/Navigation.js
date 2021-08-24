@@ -1,6 +1,5 @@
 import React from 'react';
 import Auth from '../utils/auth';
-// import { Link } from 'react-router-dom';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import '../index.css';
 

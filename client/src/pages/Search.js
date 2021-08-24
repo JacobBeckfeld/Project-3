@@ -12,12 +12,11 @@ import Auth from '../utils/auth';
 const Search = () => {
     const appCtx = useAppContext();
     const [showAlert, setShowAlert] = useState(false);
+    const _id = Auth.getProfile().data._id;
 
-    const _id = Auth.getProfile().data._id
     const onDismiss = () => setShowAlert(false);
 
     const handleSearch = async () => {
-        console.log(appCtx.appState.battleTag)
         if (appCtx.appState.battleTag) {
             try {
                 const token = await getToken();
@@ -31,9 +30,7 @@ const Search = () => {
 
     const handleSaveProfile = async (_id, battletag) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
-        console.log("token", token)
-        console.log("_id", _id)
-        console.log("battletag", battletag)
+
         if (!token) {
             return false;
         }
@@ -70,10 +67,10 @@ const Search = () => {
                 <>
                     <div className="row justify-content-center">
                         <h1 className="text-center"> Hero results for Battle Tag: {appCtx.appState.battleTag}</h1>
-                    <Button xs="1" onClick={() => handleSaveProfile(_id, appCtx.appState.battleTag)} className="save-btag">Save Battletag</Button>
-                    <Alert className="save-btag-alert" color="info" isOpen={showAlert} toggle={onDismiss}>
-                        BattleTag saved!
-                    </Alert>
+                        <Button xs="1" onClick={() => handleSaveProfile(_id, appCtx.appState.battleTag)} className="save-btag">Save Battletag</Button>
+                        <Alert className="save-btag-alert" color="info" isOpen={showAlert} toggle={onDismiss}>
+                            BattleTag saved!
+                        </Alert>
                     </div>
                     <div className="row justify-content-center">
                         <CharacterCards heroes={appCtx.appState.heroes} battletag={appCtx.appState.battleTag} />

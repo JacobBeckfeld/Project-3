@@ -10,7 +10,7 @@ const Leaderboard = () => {
         try {
             const token = await getToken();
             const response = await getLeaderboardData(token);
-            console.log("data", response);
+
             setLeaderboardData(response);
         } catch (error) {
             console.log(error);
@@ -22,7 +22,6 @@ const Leaderboard = () => {
         // eslint-disable-next-line
     }, []);
 
-    console.log(leaderboardData);
     return (
         <Card className="leaderboard">
             <Table>

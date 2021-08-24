@@ -14,9 +14,7 @@ const BattletagAndInfo = (props) => {
 
     const handleSaveProfile = async (_id, battletag) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
-        console.log("token", token)
-        console.log("_id", _id)
-        console.log("battletag", battletag)
+
         if (!token) {
             return false;
         }
@@ -45,7 +43,7 @@ const BattletagAndInfo = (props) => {
             <p className="lead">Guild: {profile.guildName} </p>
             <Button onClick={() => handleSaveProfile(_id, battletag)} className="save-btag">Save Battletag</Button>
             <Alert className="save-btag-alert" color="info" isOpen={showAlert} toggle={onDismiss}>
-            BattleTag saved!
+                BattleTag saved!
             </Alert>
         </Container>
     );

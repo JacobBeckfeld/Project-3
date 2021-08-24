@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { Card, CardTitle, Form, FormGroup, Label, Input, FormFeedback, Button, Alert } from 'reactstrap';
 import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
@@ -8,7 +7,6 @@ export default function SignupForm() {
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', battletag: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const history = useHistory();
 
   const onDismiss = () => setShowAlert(false);
 
@@ -30,7 +28,7 @@ export default function SignupForm() {
       event.stopPropagation()
       setShowAlert(true)
     }
-    if (!validBattletag.test(userFormData.battletag) || (!userFormData.battletag==='')) {
+    if (!validBattletag.test(userFormData.battletag) || (!userFormData.battletag === '')) {
       event.preventDefault()
       event.stopPropagation()
       setShowAlert(true)
@@ -46,7 +44,7 @@ export default function SignupForm() {
       const { token, user } = await response.json()
       console.log(user)
       Auth.login(token)
-      history.push('/dashboard')
+      window.location.replace('/dashboard')
 
     } catch (err) {
       console.error(err)
