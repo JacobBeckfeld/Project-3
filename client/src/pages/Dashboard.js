@@ -123,9 +123,10 @@ const Dashboard = () => {
                 }
             </div>
 
-            <div className="row justify-content-center">
+            <div className="battleParent row justify-content-center">
                 <h1 className="heroTitle">Your Saved Battletags!</h1>
                 {savedBattletagsState ?
+
                     savedBattletagsState.map((battletag, idx) => (
                         <Card key={idx} id={battletag}>
                             <CardTitle className="heroCardTitle" tag="h2" id={battletag} >{battletag}</CardTitle>
@@ -137,7 +138,7 @@ const Dashboard = () => {
             </div>
 
             <Leaderboard />
-            <Row className="justify-content-end">
+            <Row className="infoParent justify-content-end">
                 <Card className="col-4 infoChange">
                     <h1>Change your profile information here!</h1>
                     <Form inline>

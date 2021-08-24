@@ -230,6 +230,10 @@ a.navWork:hover {
   background-size: cover;
 }
 
+.infoParent{
+  margin: 2rem;
+}
+
 /*Hero Card Styling*/
 
 .heroTitle{
@@ -247,6 +251,7 @@ a.navWork:hover {
   background-color: white;
   opacity: .75;
   border-radius: 1rem;
+  padding-left: 1rem;
   
 }
 
@@ -256,6 +261,7 @@ a.navWork:hover {
   background-color: white;
   opacity: .75;
   border-radius: 1rem;
+  padding-left: 1rem;
 }
 
 .heroText{
@@ -265,6 +271,7 @@ a.navWork:hover {
   background-color: white;
   opacity: .75;
   border-radius: 1rem;
+  padding-left: 1rem;
 }
 
 /*Leaderboard Styling*/
@@ -286,3 +293,20 @@ a.navWork:hover {
   font-size: 30px;
   color: rgb(189, 71, 3);
 }
+
+/*Battle Tag Styling*/
+
+.battleTagCard{
+  background-color: rgb(34, 34, 34);
+  text-align: center;
+  
+}
+
+.battleTagThing{
+  color: brown;
+}
+
+.battleParent{
+  margin: 2rem;
+}
+
