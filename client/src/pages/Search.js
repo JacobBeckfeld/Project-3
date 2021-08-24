@@ -12,8 +12,8 @@ import Auth from '../utils/auth';
 const Search = () => {
     const appCtx = useAppContext();
     const [showAlert, setShowAlert] = useState(false);
-    const _id = Auth.getProfile().data._id;
-
+    
+    const _id = Auth.loggedIn() ? Auth.getProfile().data._id : null;
     const onDismiss = () => setShowAlert(false);
 
     const handleSearch = async () => {
